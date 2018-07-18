@@ -1,0 +1,85 @@
+# name_prefix; aus_macrodata
+# description; Austrailan macroeconomic dataset
+# lag_parameter;4
+# number_predictions;75
+# horizon;1
+# max_attributes;15
+# predict;HStartsVIC
+# method; Univariate_model()
+# predict_model; Auto_Arima
+"V1"
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+17.601393274773
+-0.344132212407146
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+-0.394641318036912

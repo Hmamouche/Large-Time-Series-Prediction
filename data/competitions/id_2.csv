@@ -1,9 +1,0 @@
-# description; Multi-Plant Photovoltaic Energy Forecasting Challenge
-# number_predictions; 90
-# predict; power_hour_2;power_hour_3;power_hour_4;power_hour_5;power_hour_6;power_hour_7;power_hour_8;power_hour_9;power_hour_10;power_hour_11;power_hour_12;power_hour_13;power_hour_14;power_hour_15;power_hour_16;power_hour_17;power_hour_18;power_hour_19;power_hour_20
-# lag_parameter; 0
-# horizon; 1
-# name_prefix; PV_competition_id_2
-# method; All_variables(n_components=9)
-# prediction_type; rolling
-

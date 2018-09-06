@@ -81,15 +81,13 @@ def pehar_distributed (Mat, target_index, iters, error = 1.0e-3):
     return (auths, hubs)
 
 if __name__ == "__main__":
-    
+	
     '''iters = 10
     target_index = 0
     input_mat = sys.argv[1]
     data_name = input_mat. split ('/')[-1]. split ('.')[0]
  
     df = sqlcontext.read. parquet (input_mat)
-    
-
     auths, hubs = pehar_distributed (df, target_index, iters)
     print (hubs. map (lambda x: x[1]). reduce (lambda x, y: x + y))'''
 

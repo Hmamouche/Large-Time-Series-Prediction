@@ -7,19 +7,26 @@ Ce dossier contient les données utilisées et les résultats associés aux trav
 data: the used multivariate time series
 
 
-src 
-	tools: some function for reading and writing files and metadata
-	pre_selection: causality graphs computation with the granger causality and the transfert entropy
-	selection: feature selection methods
-	prediction: the implementations of the prediction models
-	pre_evaluation: scripts for gathering the prediction errors
-	evaluation: compute the forecast accuracy using MASE and RMSE measures.
+##src 
+
+	* tools: some function for reading and writing files and metadata
+
+	* pre_selection: causality graphs computation with the granger causality and the transfert entropy
+
+	* selection: feature selection methods
+
+	* prediction: the implementations of the prediction models
+	
+	* pre_evaluation: scripts for gathering the prediction errors
+	
+	* evaluation: compute the forecast accuracy using MASE and RMSE measures.
 	
 		
-results 
-	pre_selection: causality matrix of each datasets
-	selection: feature selection (with all methods) for each target variable of each datasets.
-	prediction: the prediction associated to each file from src/selection/
+##results 
+
+	* pre_selection: causality matrix of each datasets
+	* selection: feature selection (with all methods) for each target variable of each datasets.
+	* prediction: the prediction associated to each file from src/selection/
 
       
 # Installation

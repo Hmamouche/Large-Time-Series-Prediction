@@ -40,3 +40,11 @@ This file contains the used data, the models and methods implementations,  and t
    ```bash
     Rscript requirements.R
    ```
+# To reproduce the results
+	* fab pre_selection:data/"dataname"
+	* fab selection:data/"dataname"
+	* fab predition:data/"dataname"
+	* fab pre_evaluation:data/"dataname"
+	* fab evaluation:data/"dataname"
+
+

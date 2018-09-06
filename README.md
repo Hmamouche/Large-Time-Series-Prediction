@@ -6,7 +6,7 @@ Ce dossier contient les données utilisées et les résultats associés aux trav
 
 ## data: the used multivariate time series
 
-## src 
+## src: methdods and models implementations
 
 	* tools: some function for reading and writing files and metadata
 
@@ -21,10 +21,12 @@ Ce dossier contient les données utilisées et les résultats associés aux trav
 	* evaluation: compute the forecast accuracy using MASE and RMSE measures.
 	
 		
-## results 
+## results
 
 	* pre_selection: causality matrix of each datasets
+
 	* selection: feature selection (with all methods) for each target variable of each datasets.
+	
 	* prediction: the prediction associated to each file from src/selection/
 
       

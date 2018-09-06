@@ -27,7 +27,7 @@ This file contains the used data, the models and methods implementations,  and t
 
 	* selection: feature selection (with all methods) for each target variable of each datasets.
 
-	* prediction: the prediction associated to each file from src/selection/
+	* prediction: the predictions associated to each file in results/selection/dataset/
 
       
 # Installation

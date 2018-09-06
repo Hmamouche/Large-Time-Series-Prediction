@@ -4,10 +4,9 @@ Ce dossier contient les données utilisées et les résultats associés aux trav
 
 # Structure:
 
-data: the used multivariate time series
+## data: the used multivariate time series
 
-
-##src 
+## src 
 
 	* tools: some function for reading and writing files and metadata
 
@@ -22,7 +21,7 @@ data: the used multivariate time series
 	* evaluation: compute the forecast accuracy using MASE and RMSE measures.
 	
 		
-##results 
+## results 
 
 	* pre_selection: causality matrix of each datasets
 	* selection: feature selection (with all methods) for each target variable of each datasets.

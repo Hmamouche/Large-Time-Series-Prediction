@@ -1,13 +1,14 @@
 chooseCRANmirror()
-install.packages("kernlab")
-install.packages("forecast")
-install.packages("cluster")
-install.packages("lmtest")
-install.packages("fpc")
-install.packages("vars")
-install.packages("stats")
-install.packages("parallel")
-install.packages("tsDyn")
-install.packages("factoextra")
-install.packages("NbClust")
-install.packages("psych")
+install.packages(c("kernlab", 
+					"TransferEntropy")
+					"forecast",
+					"cluster",
+					"lmtest",
+					"fpc",
+					"vars",
+					"stats",
+					"parallel",
+					"tsDyn",
+					"factoextra",
+					"NbClust",
+					"psych"))

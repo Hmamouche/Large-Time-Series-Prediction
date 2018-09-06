@@ -1,6 +1,6 @@
 # Thesis Experiments
 
-This file contains the used data, the models and methods implementations,  and the results associated with the work of the thesis. The results include the default graphs, the results of the variable selection and prediction stage, and finally the prediction evaluations.
+This file contains the used data, the models and methods implementations,  and the results associated with the work of the thesis. The results include the  graphs of dependenceis between time series, the results of the feature selection, the predictions using different prediction models, and finally the prediction accuracy evaluations.
 
 # Structure:
 

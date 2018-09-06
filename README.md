@@ -37,4 +37,6 @@ This file contains the used data, the models and methods implementations,  and t
     pip install -r requirements.txt.
     ```
    * install dependencies for R
-   Rscrip requirements.R
+   ```bash
+    Rscript requirements.R
+   ```

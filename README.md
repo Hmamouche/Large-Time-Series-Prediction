@@ -1,6 +1,6 @@
-# Expérimentations-Thèse
+# Thesis Experiments
 
-Ce dossier contient les données utilisées et les résultats associés aux travaux de la thèse  qui sont présentés dans le mémoire. Les résultats incluent les graphes de caualités, les résultats de l'étape de sélection des variables et de la prédiction, et finalement les évaluations des prédictions.
+This file contains the used data, the models and methods implementations,  and the results associated with the work of the thesis. The results include the default graphs, the results of the variable selection and prediction stage, and finally the prediction evaluations.
 
 # Structure:
 
@@ -26,7 +26,7 @@ Ce dossier contient les données utilisées et les résultats associés aux trav
 	* pre_selection: causality matrix of each datasets
 
 	* selection: feature selection (with all methods) for each target variable of each datasets.
-	
+
 	* prediction: the prediction associated to each file from src/selection/
 
       

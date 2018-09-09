@@ -1,6 +1,6 @@
 # Thesis Experiments
 
-This foalder contains the used data, the models and methods implementations,  and the results associated with the work of the thesis. The results include the  graphs of dependenceis between time series, the results of the feature selection, the predictions using different prediction models, and finally the prediction accuracy evaluations.
+This repository contains the used data, the models and methods implementations,  and the results associated with the work of the thesis. The results include the  graphs of dependenceis between time series, the results of the feature selection, the predictions using different prediction models, and finally the prediction accuracy evaluations.
 
 # Structure:
 

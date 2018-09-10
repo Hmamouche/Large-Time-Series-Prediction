@@ -119,9 +119,13 @@ def main (xls, cols, target_names, reduced_cols, data_name):
         for i in range (len (reduced_cols)):
                 nbre_var_pf.iloc [i,0] = number_of_variables [cols[i]]
 
-        nbre_var_pf.index = reduced_cols
-        nbre_var_pf.to_csv (file, sep = ';')
-        matrix_pf.index = reduced_cols
+        
+	# Store the best number of variables obtained by each method
+	nbre_var_pf.index = reduced_cols
+        nbre_var_pf.to_csv ("csv/"+ file, sep = ';')
+        
+
+	matrix_pf.index = reduced_cols
         matrix_pf.drop (['Arima'], axis = 0, inplace=True)
         
         try:
@@ -149,8 +153,8 @@ def main (xls, cols, target_names, reduced_cols, data_name):
 
         if "ausmacro" in data_name:
             data_name = "aus"
-        plt.savefig (data_name + "_" + measure + ".pdf")        
-        plt.show()
+        plt.savefig ("pdf/" + data_name + "_" + measure + ".pdf")        
+        #plt.show()
         plt.clf ()
 
 
@@ -158,7 +162,7 @@ def main (xls, cols, target_names, reduced_cols, data_name):
 if __name__ == "__main__":
     
     if len (sys.argv) < 2:
-        print ( bcolors.FAIL + "Unsufficient arguments!" + bcolors.ENDC)
+        print ( bcolors.FAIL + "Unsufficient arguments! add the data path." + bcolors.ENDC)
         exit (1)
     
     #------ READ DATA ---------#

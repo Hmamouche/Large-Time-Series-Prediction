@@ -7,7 +7,7 @@
 # predict;RHDI
 # prediction_type;rolling
 # method; Part-GFS_granger_graph(n_components=1)
-"RHDI";"p_gfsm"
+"RHDI";"Emp.HoursFt"
 -5.337857215;3.751502446
 1.332827059;5.523923853
 8.73017571;5.23278534

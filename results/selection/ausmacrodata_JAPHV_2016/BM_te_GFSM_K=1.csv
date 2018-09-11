@@ -7,7 +7,7 @@
 # predict;BM
 # prediction_type;rolling
 # method; Part-GFS_te(n_components=1)
-"BM";"p_gfsm"
+"BM";"RHDI"
 0.154443352;-5.337857215
 3.824069596;1.332827059
 -2.058393716;8.73017571

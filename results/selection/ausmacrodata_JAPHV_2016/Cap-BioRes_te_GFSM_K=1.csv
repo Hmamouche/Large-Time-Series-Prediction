@@ -7,7 +7,7 @@
 # predict;Cap-BioRes
 # prediction_type;rolling
 # method; Part-GFS_te(n_components=1)
-"Cap-BioRes";"p_gfsm"
+"Cap-BioRes";"Unum.LPT"
 -11.47854947;16.69539192
 -18.46940131;-4.699432064
 -24.51670602;25.7111197

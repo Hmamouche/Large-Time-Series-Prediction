@@ -1,5 +1,5 @@
-# name_prefix; us_data_stock_watson_2012;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-# description; Stock and Watson 2012: US indicators;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+# name_prefix; us_data_stock_watson_2012
+# description; Stock and Watson 2012: US indicators
 # lag_parameter;4
 # number_predictions;100
 # horizon;1
@@ -7,7 +7,7 @@
 # predict;PMNV
 # prediction_type;rolling
 # method; Part-GFS_te(n_components=1)
-"PMNV";"p_gfsm"
+"PMNV";"PMP"
 0.310697674418607;0.000775193798450924
 -0.349767441860467;-0.303875968992249
 -0.219534883720928;-0.0705426356589141

@@ -7,7 +7,7 @@
 # predict;Credit-Bus
 # prediction_type;rolling
 # method; Part-GFS_te(n_components=1)
-"Credit-Bus";"p_gfsm"
+"Credit-Bus";"Cap.MacEqu"
 1.474219872;20.69426976
 4.043824662;3.505998541
 4.158767383;-14.37667364

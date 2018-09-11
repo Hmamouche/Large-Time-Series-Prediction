@@ -7,7 +7,7 @@
 # predict;Emp-FtPer
 # prediction_type;rolling
 # method; Part-GFS_granger_graph(n_components=1)
-"Emp-FtPer";"p_gfsm"
+"Emp-FtPer";"Unum.LFT"
 1.550869099;-7.109359106
 4.93821429;-11.21286533
 3.635339506;-17.41771767

@@ -7,7 +7,7 @@
 # predict;Unum-LFT
 # prediction_type;rolling
 # method; Part-GFS_te(n_components=1)
-"Unum-LFT";"p_gfsm"
+"Unum-LFT";"HStartsSA"
 -7.109359106;-27.52798427
 -11.21286533;15.79388653
 -17.41771767;-84.60645956

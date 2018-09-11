@@ -7,7 +7,7 @@
 # predict;IP-Total
 # prediction_type;rolling
 # method; Part-GFS_granger_graph(n_components=1)
-"IP-Total";"p_gfsm"
+"IP-Total";"Urate"
 14.9476586;-0.033333334
 1.541427726;-0.2
 -3.088818438;8.88e-16

@@ -7,7 +7,7 @@
 # predict;HCE-ITA
 # prediction_type;rolling
 # method; Part-GFS_granger_graph(n_components=1)
-"HCE-ITA";"p_gfsm"
+"HCE-ITA";"HCE.TelEqu"
 19.73095503;-5.751021934
 -15.91427047;-5.517328853
 3.276361783;8.379850525

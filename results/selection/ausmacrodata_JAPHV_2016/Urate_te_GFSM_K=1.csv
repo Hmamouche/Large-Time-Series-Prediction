@@ -7,7 +7,7 @@
 # predict;Urate
 # prediction_type;rolling
 # method; Part-GFS_te(n_components=1)
-"Urate";"p_gfsm"
+"Urate";"Emp.HoursPer"
 -0.033333334;3.527630443
 -0.2;6.089810948
 8.88e-16;5.771202084

@@ -7,7 +7,7 @@
 # predict;ExrateGBP
 # prediction_type;rolling
 # method; Part-GFS_te(n_components=1)
-"ExrateGBP";"p_gfsm"
+"ExrateGBP";"ExrateNZD"
 -89.60769201;-48.33868156
 -9.279707455;-31.65525742
 -25.25321553;-19.26290451

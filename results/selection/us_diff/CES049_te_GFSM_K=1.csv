@@ -1,5 +1,5 @@
-# name_prefix; us_data_stock_watson_2012;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-# description; Stock and Watson 2012: US indicators;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+# name_prefix; us_data_stock_watson_2012
+# description; Stock and Watson 2012: US indicators
 # lag_parameter;4
 # number_predictions;100
 # horizon;1
@@ -7,7 +7,7 @@
 # predict;CES049
 # prediction_type;rolling
 # method; Part-GFS_te(n_components=1)
-"CES049";"p_gfsm"
+"CES049";"GDP254"
 0.00850520944078146;0.00314724040749634
 0.00986797595345527;0.00202870897347328
 0.0037886842054376;0.00251121272932635

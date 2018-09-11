@@ -1,5 +1,5 @@
-# name_prefix; us_data_stock_watson_2012;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-# description; Stock and Watson 2012: US indicators;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+# name_prefix; us_data_stock_watson_2012
+# description; Stock and Watson 2012: US indicators
 # lag_parameter;4
 # number_predictions;100
 # horizon;1
@@ -7,7 +7,7 @@
 # predict;GDP275_4
 # prediction_type;rolling
 # method; Part-GFS_granger_graph(n_components=1)
-"GDP275_4";"p_gfsm"
+"GDP275_4";"LBLCPU"
 0.00161587192877322;-0.000915001203948942
 0.00264318123448335;0.0017625812665543
 0.00107011386011469;0.00298579340235973

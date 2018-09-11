@@ -1,5 +1,5 @@
-# name_prefix; us_data_stock_watson_2012;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-# description; Stock and Watson 2012: US indicators;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+# name_prefix; us_data_stock_watson_2012
+# description; Stock and Watson 2012: US indicators
 # lag_parameter;4
 # number_predictions;100
 # horizon;1
@@ -7,7 +7,7 @@
 # predict;CES140
 # prediction_type;rolling
 # method; Part-GFS_granger_graph(n_components=1)
-"CES140";"p_gfsm"
+"CES140";"FMFBA"
 0.00196418255343711;0.000129475674818692
 0.00358174465626826;0.000182487413376498
 0.00748700173310224;-7.7441111165152e-05

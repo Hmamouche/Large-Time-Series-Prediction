@@ -7,7 +7,7 @@
 # predict;ExrateNZD
 # prediction_type;rolling
 # method; Part-GFS_te(n_components=1)
-"ExrateNZD";"p_gfsm"
+"ExrateNZD";"HStartsNT"
 -48.33868156;17.75035263
 -31.65525742;-37.79032137
 -19.26290451;-36.07428713

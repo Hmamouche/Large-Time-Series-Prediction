@@ -7,7 +7,7 @@
 # predict;Currency
 # prediction_type;rolling
 # method; Part-GFS_granger_graph(n_components=1)
-"Currency";"p_gfsm"
+"Currency";"IP.MP"
 -0.471828625;17.31336708
 -6.918881082;-3.037220363
 -0.106636503;-6.764188859

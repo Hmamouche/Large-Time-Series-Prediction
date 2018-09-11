@@ -7,7 +7,7 @@
 # predict;Cap-MacEqu
 # prediction_type;rolling
 # method; Part-GFS_te(n_components=1)
-"Cap-MacEqu";"p_gfsm"
+"Cap-MacEqu";"ExrateNZD"
 20.69426976;-48.33868156
 3.505998541;-31.65525742
 -14.37667364;-19.26290451

@@ -7,7 +7,7 @@
 # predict;HCE-OthMot
 # prediction_type;rolling
 # method; Part-GFS_granger_graph(n_components=1)
-"HCE-OthMot";"p_gfsm"
+"HCE-OthMot";"Cons.RecCul"
 -1.430497544;-4.122230079
 1.357647088;-1.185625173
 -0.042514747;11.70101713

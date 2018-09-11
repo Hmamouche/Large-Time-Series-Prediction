@@ -7,7 +7,7 @@
 # predict;Cons-RecCul
 # prediction_type;rolling
 # method; Part-GFS_te(n_components=1)
-"Cons-RecCul";"p_gfsm"
+"Cons-RecCul";"Unum.LFT"
 -4.122230079;-7.109359106
 -1.185625173;-11.21286533
 11.70101713;-17.41771767

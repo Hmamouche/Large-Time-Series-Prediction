@@ -7,7 +7,7 @@
 # predict;RetSales
 # prediction_type;rolling
 # method; Part-GFS_granger_graph(n_components=1)
-"RetSales";"p_gfsm"
+"RetSales";"Mbase"
 15.01147902;0.793838094
 11.48514984;-3.71033664
 13.1839997;6.271564038

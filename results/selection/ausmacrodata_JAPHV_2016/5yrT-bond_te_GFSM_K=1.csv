@@ -7,7 +7,7 @@
 # predict;5yrT-bond
 # prediction_type;rolling
 # method; Part-GFS_te(n_components=1)
-"5yrT-bond";"p_gfsm"
+"5yrT-bond";"RGDP"
 0.28333333;8.902859911
 0.15;5.039001579
 1.31666667;-1.002234306

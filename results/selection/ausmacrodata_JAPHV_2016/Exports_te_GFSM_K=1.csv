@@ -7,7 +7,7 @@
 # predict;Exports
 # prediction_type;rolling
 # method; Part-GFS_te(n_components=1)
-"Exports";"p_gfsm"
+"Exports";"IP.PCCR"
 20.86424837;11.26835079
 -12.25849459;-6.106988852
 9.643627662;0.512492062

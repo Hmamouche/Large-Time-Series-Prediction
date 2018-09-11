@@ -7,7 +7,7 @@
 # predict;IP-Man
 # prediction_type;rolling
 # method; Part-GFS_te(n_components=1)
-"IP-Man";"p_gfsm"
+"IP-Man";"IP.WPP"
 11.23669395;17.02384577
 -3.89703848;24.9029101
 0;0.977597228

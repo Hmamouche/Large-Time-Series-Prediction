@@ -7,7 +7,7 @@
 # predict;Emp-JobVac
 # prediction_type;rolling
 # method; Part-GFS_granger_graph(n_components=1)
-"Emp-JobVac";"p_gfsm"
+"Emp-JobVac";"Unum.LFT"
 8.2;-7.109359106
 -1.4;-11.21286533
 -1;-17.41771767

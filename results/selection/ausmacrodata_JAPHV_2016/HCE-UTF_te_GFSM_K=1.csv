@@ -7,7 +7,7 @@
 # predict;HCE-UTF
 # prediction_type;rolling
 # method; Part-GFS_te(n_components=1)
-"HCE-UTF";"p_gfsm"
+"HCE-UTF";"IP.ME"
 4.559453137;9.327776938
 -9.418161949;-12.9741103
 3.047532738;15.80097719

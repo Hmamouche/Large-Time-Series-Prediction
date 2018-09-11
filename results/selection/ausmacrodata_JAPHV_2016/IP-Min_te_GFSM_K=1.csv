@@ -7,7 +7,7 @@
 # predict;IP-Min
 # prediction_type;rolling
 # method; Part-GFS_te(n_components=1)
-"IP-Min";"p_gfsm"
+"IP-Min";"IP.PRM"
 45.02191652;10.83056158
 27.42506857;1.391305751
 -24.85271244;-18.47575299

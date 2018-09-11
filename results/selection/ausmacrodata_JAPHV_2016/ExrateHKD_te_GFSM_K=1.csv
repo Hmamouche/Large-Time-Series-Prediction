@@ -7,7 +7,7 @@
 # predict;ExrateHKD
 # prediction_type;rolling
 # method; Part-GFS_te(n_components=1)
-"ExrateHKD";"p_gfsm"
+"ExrateHKD";"Mbase"
 -50.61674495;0.793838094
 31.75646621;-3.71033664
 -12.15257365;6.271564038

@@ -7,7 +7,7 @@
 # predict;AveComp
 # prediction_type;rolling
 # method; Part-GFS_te(n_components=1)
-"AveComp";"p_gfsm"
+"AveComp";"ExrateNZD"
 8.978967978;-48.33868156
 2.6029654;-31.65525742
 7.708782219;-19.26290451

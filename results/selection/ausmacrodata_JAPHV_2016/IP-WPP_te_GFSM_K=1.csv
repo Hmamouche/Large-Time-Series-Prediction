@@ -7,7 +7,7 @@
 # predict;IP-WPP
 # prediction_type;rolling
 # method; Part-GFS_te(n_components=1)
-"IP-WPP";"p_gfsm"
+"IP-WPP";"ExrateJPY"
 17.02384577;-56.0810178
 24.9029101;-2.706710383
 0.977597228;-60.41539571

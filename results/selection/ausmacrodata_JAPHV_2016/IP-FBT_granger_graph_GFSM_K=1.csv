@@ -7,7 +7,7 @@
 # predict;IP-FBT
 # prediction_type;rolling
 # method; Part-GFS_granger_graph(n_components=1)
-"IP-FBT";"p_gfsm"
+"IP-FBT";"HStartsTAS"
 13.00927668;19.07962263
 -19.67609768;13.73525503
 -4.054088758;-86.08205949

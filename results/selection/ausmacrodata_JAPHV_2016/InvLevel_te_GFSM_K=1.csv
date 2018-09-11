@@ -7,7 +7,7 @@
 # predict;InvLevel
 # prediction_type;rolling
 # method; Part-GFS_te(n_components=1)
-"InvLevel";"p_gfsm"
+"InvLevel";"Unum.LFT"
 17.48515594;-7.109359106
 7.352259649;-11.21286533
 8.800878566;-17.41771767

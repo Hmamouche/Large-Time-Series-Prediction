@@ -7,7 +7,7 @@
 # predict;Emp-FtPer
 # prediction_type;rolling
 # method; Part-GFS_te(n_components=1)
-"Emp-FtPer";"p_gfsm"
+"Emp-FtPer";"Cons.RecCul"
 1.550869099;-4.122230079
 4.93821429;-1.185625173
 3.635339506;11.70101713

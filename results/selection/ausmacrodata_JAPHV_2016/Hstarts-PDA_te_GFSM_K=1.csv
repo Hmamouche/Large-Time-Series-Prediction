@@ -7,7 +7,7 @@
 # predict;Hstarts-PDA
 # prediction_type;rolling
 # method; Part-GFS_te(n_components=1)
-"Hstarts-PDA";"p_gfsm"
+"Hstarts-PDA";"HSexfinVal"
 9.82314031;11.09550276
 -10.92964193;8.73966356
 -29.89897037;-76.30424091

@@ -7,7 +7,7 @@
 # predict;M1
 # prediction_type;rolling
 # method; Part-GFS_te(n_components=1)
-"M1";"p_gfsm"
+"M1";"SPASXAllOrds"
 0.592028024;34.16670584
 -15.46362926;36.86769673
 7.237497488;21.84685965

@@ -7,7 +7,7 @@
 # predict;TotComp
 # prediction_type;rolling
 # method; Part-GFS_te(n_components=1)
-"TotComp";"p_gfsm"
+"TotComp";"Cap.IntPro"
 10.78809055;29.76811729
 8.213946896;14.87555217
 12.78641946;-27.52265376

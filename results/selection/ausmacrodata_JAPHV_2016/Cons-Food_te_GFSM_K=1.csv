@@ -7,7 +7,7 @@
 # predict;Cons-Food
 # prediction_type;rolling
 # method; Part-GFS_te(n_components=1)
-"Cons-Food";"p_gfsm"
+"Cons-Food";"IP.TCO"
 4.654129298;-8.721430312
 8.522199281;13.53194581
 0.800592009;12.68648535

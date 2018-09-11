@@ -7,7 +7,7 @@
 # predict;EXrateIDR
 # prediction_type;rolling
 # method; Part-GFS_granger_graph(n_components=1)
-"EXrateIDR";"p_gfsm"
+"EXrateIDR";"Exports"
 -40.88883237;20.86424837
 32.77093107;-12.25849459
 -11.89047214;9.643627662

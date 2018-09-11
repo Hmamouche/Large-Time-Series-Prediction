@@ -7,7 +7,7 @@
 # predict;Hstarts-PDA
 # prediction_type;rolling
 # method; Part-GFS_granger_graph(n_components=1)
-"Hstarts-PDA";"p_gfsm"
+"Hstarts-PDA";"HSexfinNum"
 9.82314031;2.088518489
 -10.92964193;1.032781534
 -29.89897037;-59.30819233

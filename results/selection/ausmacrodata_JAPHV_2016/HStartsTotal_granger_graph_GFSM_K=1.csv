@@ -7,7 +7,7 @@
 # predict;HStartsTotal
 # prediction_type;rolling
 # method; Part-GFS_granger_graph(n_components=1)
-"HStartsTotal";"p_gfsm"
+"HStartsTotal";"X5yrT.bond"
 2.088518489;0.28333333
 1.032781534;0.15
 -59.30819233;1.31666667

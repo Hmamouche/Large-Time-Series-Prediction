@@ -7,7 +7,7 @@
 # predict;Cons-HCR
 # prediction_type;rolling
 # method; Part-GFS_granger_graph(n_components=1)
-"Cons-HCR";"p_gfsm"
+"Cons-HCR";"Exports"
 4.959094512;20.86424837
 4.002006187;-12.25849459
 7.060151321;9.643627662

@@ -7,7 +7,7 @@
 # predict;HStartsTAS
 # prediction_type;rolling
 # method; Part-GFS_te(n_components=1)
-"HStartsTAS";"p_gfsm"
+"HStartsTAS";"HCE.Fuel"
 19.07962263;29.57519634
 13.73525503;-33.96518689
 -86.08205949;-19.91302846

@@ -7,7 +7,7 @@
 # predict;LoaAdv
 # prediction_type;rolling
 # method; Part-GFS_te(n_components=1)
-"LoaAdv";"p_gfsm"
+"LoaAdv";"Gov"
 9.806389504;4.194470664
 -4.924300574;-0.552235124
 -2.79854481;6.125980765

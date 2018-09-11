@@ -7,7 +7,7 @@
 # predict;HCE-DTA
 # prediction_type;rolling
 # method; Part-GFS_granger_graph(n_components=1)
-"HCE-DTA";"p_gfsm"
+"HCE-DTA";"IP.NMM"
 -3.065863728;35.82427093
 0.821240339;18.66790891
 0.773723894;-18.00947255

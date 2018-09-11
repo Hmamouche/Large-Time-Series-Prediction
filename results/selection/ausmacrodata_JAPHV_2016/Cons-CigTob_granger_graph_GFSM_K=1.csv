@@ -7,7 +7,7 @@
 # predict;Cons-CigTob
 # prediction_type;rolling
 # method; Part-GFS_granger_graph(n_components=1)
-"Cons-CigTob";"p_gfsm"
+"Cons-CigTob";"Cons.CloFoo"
 4.592863558;24.13550094
 -8.259460414;-12.5145719
 6.50792149;5.872352853

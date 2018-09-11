@@ -7,7 +7,7 @@
 # predict;SPASXAllOrds
 # prediction_type;rolling
 # method; Part-GFS_granger_graph(n_components=1)
-"SPASXAllOrds";"p_gfsm"
+"SPASXAllOrds";"HCE.TelEqu"
 34.16670584;-5.751021934
 36.86769673;-5.517328853
 21.84685965;8.379850525

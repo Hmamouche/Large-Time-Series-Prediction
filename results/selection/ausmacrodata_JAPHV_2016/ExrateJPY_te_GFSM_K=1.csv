@@ -7,7 +7,7 @@
 # predict;ExrateJPY
 # prediction_type;rolling
 # method; Part-GFS_te(n_components=1)
-"ExrateJPY";"p_gfsm"
+"ExrateJPY";"Hstarts.PDA"
 -56.0810178;9.82314031
 -2.706710383;-10.92964193
 -60.41539571;-29.89897037

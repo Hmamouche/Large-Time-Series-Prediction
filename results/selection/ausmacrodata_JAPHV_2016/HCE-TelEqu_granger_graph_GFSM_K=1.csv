@@ -7,7 +7,7 @@
 # predict;HCE-TelEqu
 # prediction_type;rolling
 # method; Part-GFS_granger_graph(n_components=1)
-"HCE-TelEqu";"p_gfsm"
+"HCE-TelEqu";"HCE.MaiRep"
 -5.751021934;3.891432847
 -5.517328853;-0.153065192
 8.379850525;2.666363211

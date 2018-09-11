@@ -7,7 +7,7 @@
 # predict;Credit-Nar
 # prediction_type;rolling
 # method; Part-GFS_te(n_components=1)
-"Credit-Nar";"p_gfsm"
+"Credit-Nar";"Cap.IntPro"
 0.86853552;29.76811729
 2.86129465;14.87555217
 1.132265815;-27.52265376

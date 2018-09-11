@@ -7,7 +7,7 @@
 # predict;InvtoSales
 # prediction_type;rolling
 # method; Part-GFS_te(n_components=1)
-"InvtoSales";"p_gfsm"
+"InvtoSales";"Cons.RenDwe"
 -0.018;3.259824627
 -0.013;3.576839175
 0.009;3.672689016

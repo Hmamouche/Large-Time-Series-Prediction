@@ -7,7 +7,7 @@
 # predict;Cons-CloFoo
 # prediction_type;rolling
 # method; Part-GFS_te(n_components=1)
-"Cons-CloFoo";"p_gfsm"
+"Cons-CloFoo";"Cons.Edu"
 24.13550094;-9.488954976
 -12.5145719;19.23494427
 5.872352853;2.470903557

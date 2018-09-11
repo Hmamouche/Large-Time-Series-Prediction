@@ -7,7 +7,7 @@
 # predict;10yrNSWT-bond
 # prediction_type;rolling
 # method; Part-GFS_granger_graph(n_components=1)
-"10yrNSWT-bond";"p_gfsm"
+"10yrNSWT-bond";"Emp.TotalPer"
 0.36;2.464112824
 -0.1;5.483923863
 1.07333333;4.783777812

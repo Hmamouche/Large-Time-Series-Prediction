@@ -7,7 +7,7 @@
 # predict;Unum-Total
 # prediction_type;rolling
 # method; Part-GFS_te(n_components=1)
-"Unum-Total";"p_gfsm"
+"Unum-Total";"IP.Min"
 -3.406307071;45.02191652
 -10.17293826;27.42506857
 -10.14030429;-24.85271244

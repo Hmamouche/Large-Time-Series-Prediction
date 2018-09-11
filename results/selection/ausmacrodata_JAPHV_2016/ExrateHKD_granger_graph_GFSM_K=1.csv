@@ -7,7 +7,7 @@
 # predict;ExrateHKD
 # prediction_type;rolling
 # method; Part-GFS_granger_graph(n_components=1)
-"ExrateHKD";"p_gfsm"
+"ExrateHKD";"HSexfinVal"
 -50.61674495;11.09550276
 31.75646621;8.73966356
 -12.15257365;-76.30424091

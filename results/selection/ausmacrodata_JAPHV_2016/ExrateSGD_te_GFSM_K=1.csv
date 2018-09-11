@@ -7,7 +7,7 @@
 # predict;ExrateSGD
 # prediction_type;rolling
 # method; Part-GFS_te(n_components=1)
-"ExrateSGD";"p_gfsm"
+"ExrateSGD";"ExrateMYR"
 -49.07031776;-57.08130991
 26.40854143;28.80630188
 -29.89874165;-19.16319755

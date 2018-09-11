@@ -7,7 +7,7 @@
 # predict;InvLevel
 # prediction_type;rolling
 # method; Part-GFS_granger_graph(n_components=1)
-"InvLevel";"p_gfsm"
+"InvLevel";"Imports"
 17.48515594;-1.793193953
 7.352259649;9.516280621
 8.800878566;-5.366970802

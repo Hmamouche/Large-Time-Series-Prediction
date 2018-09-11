@@ -7,7 +7,7 @@
 # predict;IP-PCCR
 # prediction_type;rolling
 # method; Part-GFS_granger_graph(n_components=1)
-"IP-PCCR";"p_gfsm"
+"IP-PCCR";"Cons.OpeVeh"
 11.26835079;3.606763344
 -6.106988852;2.511782194
 0.512492062;4.79122163

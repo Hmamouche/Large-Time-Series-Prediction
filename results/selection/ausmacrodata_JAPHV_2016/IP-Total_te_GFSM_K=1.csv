@@ -7,7 +7,7 @@
 # predict;IP-Total
 # prediction_type;rolling
 # method; Part-GFS_te(n_components=1)
-"IP-Total";"p_gfsm"
+"IP-Total";"Cons.RecCul"
 14.9476586;-4.122230079
 1.541427726;-1.185625173
 -3.088818438;11.70101713

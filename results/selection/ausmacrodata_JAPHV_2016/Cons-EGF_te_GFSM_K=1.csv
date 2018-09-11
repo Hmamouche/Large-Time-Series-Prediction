@@ -7,7 +7,7 @@
 # predict;Cons-EGF
 # prediction_type;rolling
 # method; Part-GFS_te(n_components=1)
-"Cons-EGF";"p_gfsm"
+"Cons-EGF";"IP.TCO"
 12.77697;-8.721430312
 10.32135367;13.53194581
 4.10962519;12.68648535

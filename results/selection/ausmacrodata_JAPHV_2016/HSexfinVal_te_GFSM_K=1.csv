@@ -7,7 +7,7 @@
 # predict;HSexfinVal
 # prediction_type;rolling
 # method; Part-GFS_te(n_components=1)
-"HSexfinVal";"p_gfsm"
+"HSexfinVal";"Cons.PurVeh"
 11.09550276;-17.13685898
 8.73966356;3.193139462
 -76.30424091;16.53424962

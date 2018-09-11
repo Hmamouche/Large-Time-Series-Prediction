@@ -7,7 +7,7 @@
 # predict;IP-EGWWS
 # prediction_type;rolling
 # method; Part-GFS_granger_graph(n_components=1)
-"IP-EGWWS";"p_gfsm"
+"IP-EGWWS";"Cap.BioRes"
 -2.0495348;-11.47854947
 6.791334614;-18.46940131
 -2.025320783;-24.51670602

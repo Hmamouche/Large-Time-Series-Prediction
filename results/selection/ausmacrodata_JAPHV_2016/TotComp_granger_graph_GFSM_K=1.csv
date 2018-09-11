@@ -7,7 +7,7 @@
 # predict;TotComp
 # prediction_type;rolling
 # method; Part-GFS_granger_graph(n_components=1)
-"TotComp";"p_gfsm"
+"TotComp";"Emp.TotalPer"
 10.78809055;2.464112824
 8.213946896;5.483923863
 12.78641946;4.783777812

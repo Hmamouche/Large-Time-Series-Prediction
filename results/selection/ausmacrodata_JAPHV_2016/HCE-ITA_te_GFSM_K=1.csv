@@ -7,7 +7,7 @@
 # predict;HCE-ITA
 # prediction_type;rolling
 # method; Part-GFS_te(n_components=1)
-"HCE-ITA";"p_gfsm"
+"HCE-ITA";"Cons.TraSer"
 19.73095503;2.944141763
 -15.91427047;2.657817087
 3.276361783;0.793913592

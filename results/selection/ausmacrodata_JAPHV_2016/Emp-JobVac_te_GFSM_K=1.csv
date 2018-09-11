@@ -7,7 +7,7 @@
 # predict;Emp-JobVac
 # prediction_type;rolling
 # method; Part-GFS_te(n_components=1)
-"Emp-JobVac";"p_gfsm"
+"Emp-JobVac";"Cons.RenDwe"
 8.2;3.259824627
 -1.4;3.576839175
 -1;3.672689016

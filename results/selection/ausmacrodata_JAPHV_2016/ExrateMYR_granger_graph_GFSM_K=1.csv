@@ -7,7 +7,7 @@
 # predict;ExrateMYR
 # prediction_type;rolling
 # method; Part-GFS_granger_graph(n_components=1)
-"ExrateMYR";"p_gfsm"
+"ExrateMYR";"HSexfinVal"
 -57.08130991;11.09550276
 28.80630188;8.73966356
 -19.16319755;-76.30424091

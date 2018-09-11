@@ -7,7 +7,7 @@
 # predict;M1
 # prediction_type;rolling
 # method; Part-GFS_granger_graph(n_components=1)
-"M1";"p_gfsm"
+"M1";"HCE.ITA"
 0.592028024;19.73095503
 -15.46362926;-15.91427047
 7.237497488;3.276361783

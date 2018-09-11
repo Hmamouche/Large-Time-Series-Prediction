@@ -7,7 +7,7 @@
 # predict;LabForce
 # prediction_type;rolling
 # method; Part-GFS_granger_graph(n_components=1)
-"LabForce";"p_gfsm"
+"LabForce";"TotComp"
 1.963440694;10.78809055
 4.185857054;8.213946896
 3.590961638;12.78641946

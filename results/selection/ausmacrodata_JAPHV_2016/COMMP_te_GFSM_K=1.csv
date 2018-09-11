@@ -7,7 +7,7 @@
 # predict;COMMP
 # prediction_type;rolling
 # method; Part-GFS_te(n_components=1)
-"COMMP";"p_gfsm"
+"COMMP";"ExrateMYR"
 4.547003006;-57.08130991
 -58.17157487;28.80630188
 30.73715078;-19.16319755

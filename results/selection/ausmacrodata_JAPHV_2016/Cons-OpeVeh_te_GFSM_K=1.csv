@@ -7,7 +7,7 @@
 # predict;Cons-OpeVeh
 # prediction_type;rolling
 # method; Part-GFS_te(n_components=1)
-"Cons-OpeVeh";"p_gfsm"
+"Cons-OpeVeh";"Unum.LFT"
 3.606763344;-7.109359106
 2.511782194;-11.21286533
 4.79122163;-17.41771767

@@ -7,7 +7,7 @@
 # predict;RHDI
 # prediction_type;rolling
 # method; Part-GFS_te(n_components=1)
-"RHDI";"p_gfsm"
+"RHDI";"HCE.DTA"
 -5.337857215;-3.065863728
 1.332827059;0.821240339
 8.73017571;0.773723894

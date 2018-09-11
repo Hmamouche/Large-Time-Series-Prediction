@@ -7,7 +7,7 @@
 # predict;ResInv
 # prediction_type;rolling
 # method; Part-GFS_granger_graph(n_components=1)
-"ResInv";"p_gfsm"
+"ResInv";"Hstarts.PDA"
 -1.580509136;9.82314031
 36.91051157;-10.92964193
 -17.2122436;-29.89897037

@@ -7,7 +7,7 @@
 # predict;Cons-Alc
 # prediction_type;rolling
 # method; Part-GFS_granger_graph(n_components=1)
-"Cons-Alc";"p_gfsm"
+"Cons-Alc";"HCE.Post"
 2.414273447;11.37427574
 -5.286420557;-23.86028348
 5.505179107;2.663716836

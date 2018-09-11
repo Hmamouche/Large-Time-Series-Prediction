@@ -7,7 +7,7 @@
 # predict;HCE-Pet
 # prediction_type;rolling
 # method; Part-GFS_te(n_components=1)
-"HCE-Pet";"p_gfsm"
+"HCE-Pet";"HStartsVIC"
 8.695994655;8.297846613
 -0.185035276;23.59597624
 -8.510959379;-49.13599022

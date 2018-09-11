@@ -7,7 +7,7 @@
 # predict;DomSales
 # prediction_type;rolling
 # method; Part-GFS_granger_graph(n_components=1)
-"DomSales";"p_gfsm"
+"DomSales";"Hstarts.PDA"
 16.50822084;9.82314031
 18.86585307;-10.92964193
 6.061164394;-29.89897037

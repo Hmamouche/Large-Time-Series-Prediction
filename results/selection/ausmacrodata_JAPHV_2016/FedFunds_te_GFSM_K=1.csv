@@ -7,7 +7,7 @@
 # predict;FedFunds
 # prediction_type;rolling
 # method; Part-GFS_te(n_components=1)
-"FedFunds";"p_gfsm"
+"FedFunds";"X90daysBkbills"
 4.42333334;1.54
 -0.58666667;0.36666667
 1.73666667;1.97666666

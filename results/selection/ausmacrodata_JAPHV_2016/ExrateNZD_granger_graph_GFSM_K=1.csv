@@ -7,7 +7,7 @@
 # predict;ExrateNZD
 # prediction_type;rolling
 # method; Part-GFS_granger_graph(n_components=1)
-"ExrateNZD";"p_gfsm"
+"ExrateNZD";"HCE.OthMot"
 -48.33868156;-1.430497544
 -31.65525742;1.357647088
 -19.26290451;-0.042514747

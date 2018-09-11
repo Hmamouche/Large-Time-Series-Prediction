@@ -7,7 +7,7 @@
 # predict;AveComp
 # prediction_type;rolling
 # method; Part-GFS_granger_graph(n_components=1)
-"AveComp";"p_gfsm"
+"AveComp";"Unum.LPT"
 8.978967978;16.69539192
 2.6029654;-4.699432064
 7.708782219;25.7111197

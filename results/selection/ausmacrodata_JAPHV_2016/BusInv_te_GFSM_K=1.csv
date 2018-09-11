@@ -7,7 +7,7 @@
 # predict;BusInv
 # prediction_type;rolling
 # method; Part-GFS_te(n_components=1)
-"BusInv";"p_gfsm"
+"BusInv";"UrateLabForce"
 20.59540653;-15.666667
 16.44004798;41.666667
 -4.294382558;-11.333333

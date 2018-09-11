@@ -7,7 +7,7 @@
 # predict;HCE-Fuel
 # prediction_type;rolling
 # method; Part-GFS_granger_graph(n_components=1)
-"HCE-Fuel";"p_gfsm"
+"HCE-Fuel";"Cons.OpeVeh"
 29.57519634;3.606763344
 -33.96518689;2.511782194
 -19.91302846;4.79122163

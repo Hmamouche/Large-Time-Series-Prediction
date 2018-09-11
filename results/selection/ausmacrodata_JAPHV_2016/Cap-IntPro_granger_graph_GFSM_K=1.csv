@@ -7,7 +7,7 @@
 # predict;Cap-IntPro
 # prediction_type;rolling
 # method; Part-GFS_granger_graph(n_components=1)
-"Cap-IntPro";"p_gfsm"
+"Cap-IntPro";"Cons.InsFin"
 29.76811729;17.23161345
 14.87555217;44.09384457
 -27.52265376;16.0123031

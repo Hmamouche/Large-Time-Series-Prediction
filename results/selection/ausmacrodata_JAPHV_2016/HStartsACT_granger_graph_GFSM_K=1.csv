@@ -7,7 +7,7 @@
 # predict;HStartsACT
 # prediction_type;rolling
 # method; Part-GFS_granger_graph(n_components=1)
-"HStartsACT";"p_gfsm"
+"HStartsACT";"X5yrT.bond"
 -23.67315266;0.28333333
 2.907593239;0.15
 -49.96870042;1.31666667

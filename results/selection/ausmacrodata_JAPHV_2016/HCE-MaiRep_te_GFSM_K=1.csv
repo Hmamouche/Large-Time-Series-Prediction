@@ -7,7 +7,7 @@
 # predict;HCE-MaiRep
 # prediction_type;rolling
 # method; Part-GFS_te(n_components=1)
-"HCE-MaiRep";"p_gfsm"
+"HCE-MaiRep";"Cons.Hea"
 3.891432847;-2.357360158
 -0.153065192;38.20222363
 2.666363211;0.195312504

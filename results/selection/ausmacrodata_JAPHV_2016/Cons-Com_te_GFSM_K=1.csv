@@ -7,7 +7,7 @@
 # predict;Cons-Com
 # prediction_type;rolling
 # method; Part-GFS_te(n_components=1)
-"Cons-Com";"p_gfsm"
+"Cons-Com";"HStartsWA"
 11.38152097;-23.07382576
 1.317958359;-27.7919411
 1.968830882;-81.83446384

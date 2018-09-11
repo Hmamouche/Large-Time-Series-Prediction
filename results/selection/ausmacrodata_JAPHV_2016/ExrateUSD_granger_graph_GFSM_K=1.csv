@@ -7,7 +7,7 @@
 # predict;ExrateUSD
 # prediction_type;rolling
 # method; Part-GFS_granger_graph(n_components=1)
-"ExrateUSD";"p_gfsm"
+"ExrateUSD";"HSexfinVal"
 -49.11022272;11.09550276
 31.5963894;8.73966356
 -13.72063236;-76.30424091

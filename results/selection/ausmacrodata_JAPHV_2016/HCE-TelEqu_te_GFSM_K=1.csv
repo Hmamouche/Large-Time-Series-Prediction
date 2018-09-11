@@ -7,7 +7,7 @@
 # predict;HCE-TelEqu
 # prediction_type;rolling
 # method; Part-GFS_te(n_components=1)
-"HCE-TelEqu";"p_gfsm"
+"HCE-TelEqu";"HCE.MV"
 -5.751021934;0.892331777
 -5.517328853;-3.287012459
 8.379850525;3.239384907

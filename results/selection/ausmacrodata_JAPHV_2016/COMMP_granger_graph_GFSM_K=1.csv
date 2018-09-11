@@ -7,7 +7,7 @@
 # predict;COMMP
 # prediction_type;rolling
 # method; Part-GFS_granger_graph(n_components=1)
-"COMMP";"p_gfsm"
+"COMMP";"ExrateHKD"
 4.547003006;-50.61674495
 -58.17157487;31.75646621
 30.73715078;-12.15257365

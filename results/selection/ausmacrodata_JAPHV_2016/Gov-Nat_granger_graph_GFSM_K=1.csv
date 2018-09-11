@@ -7,7 +7,7 @@
 # predict;Gov-Nat
 # prediction_type;rolling
 # method; Part-GFS_granger_graph(n_components=1)
-"Gov-Nat";"p_gfsm"
+"Gov-Nat";"Cons.InsFin"
 -13.95538379;17.23161345
 19.63609568;44.09384457
 5.364407624;16.0123031

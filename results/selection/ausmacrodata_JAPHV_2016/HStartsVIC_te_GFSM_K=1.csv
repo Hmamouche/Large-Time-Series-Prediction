@@ -7,7 +7,7 @@
 # predict;HStartsVIC
 # prediction_type;rolling
 # method; Part-GFS_te(n_components=1)
-"HStartsVIC";"p_gfsm"
+"HStartsVIC";"Unum.Total"
 8.297846613;-3.406307071
 23.59597624;-10.17293826
 -49.13599022;-10.14030429

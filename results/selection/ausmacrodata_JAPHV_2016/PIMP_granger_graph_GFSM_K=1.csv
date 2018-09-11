@@ -7,7 +7,7 @@
 # predict;PIMP
 # prediction_type;rolling
 # method; Part-GFS_granger_graph(n_components=1)
-"PIMP";"p_gfsm"
+"PIMP";"HStartsVIC"
 -50.19334541;8.297846613
 13.32128842;23.59597624
 -24.2423685;-49.13599022

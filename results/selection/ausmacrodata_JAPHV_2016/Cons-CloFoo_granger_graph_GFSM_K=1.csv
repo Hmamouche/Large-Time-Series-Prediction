@@ -7,7 +7,7 @@
 # predict;Cons-CloFoo
 # prediction_type;rolling
 # method; Part-GFS_granger_graph(n_components=1)
-"Cons-CloFoo";"p_gfsm"
+"Cons-CloFoo";"IP.NMM"
 24.13550094;35.82427093
 -12.5145719;18.66790891
 5.872352853;-18.00947255

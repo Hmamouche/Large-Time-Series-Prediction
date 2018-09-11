@@ -7,7 +7,7 @@
 # predict;Gov
 # prediction_type;rolling
 # method; Part-GFS_granger_graph(n_components=1)
-"Gov";"p_gfsm"
+"Gov";"Cons.Other"
 4.194470664;0.203510562
 -0.552235124;19.26408495
 6.125980765;-2.528576376

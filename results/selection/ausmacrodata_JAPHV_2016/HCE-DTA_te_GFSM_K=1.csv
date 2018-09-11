@@ -7,7 +7,7 @@
 # predict;HCE-DTA
 # prediction_type;rolling
 # method; Part-GFS_te(n_components=1)
-"HCE-DTA";"p_gfsm"
+"HCE-DTA";"Cap.BioRes"
 -3.065863728;-11.47854947
 0.821240339;-18.46940131
 0.773723894;-24.51670602

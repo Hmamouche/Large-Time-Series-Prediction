@@ -7,7 +7,7 @@
 # predict;10yrT-bond
 # prediction_type;rolling
 # method; Part-GFS_te(n_components=1)
-"10yrT-bond";"p_gfsm"
+"10yrT-bond";"Cons.Food"
 0.21666667;4.654129298
 -0.03333333;8.522199281
 1.1;0.800592009

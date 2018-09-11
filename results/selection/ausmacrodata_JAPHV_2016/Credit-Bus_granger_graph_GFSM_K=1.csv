@@ -7,7 +7,7 @@
 # predict;Credit-Bus
 # prediction_type;rolling
 # method; Part-GFS_granger_graph(n_components=1)
-"Credit-Bus";"p_gfsm"
+"Credit-Bus";"Credit.Total"
 1.474219872;0.86853552
 4.043824662;2.86129465
 4.158767383;1.132265815

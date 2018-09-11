@@ -7,7 +7,7 @@
 # predict;Cons-InsFin
 # prediction_type;rolling
 # method; Part-GFS_te(n_components=1)
-"Cons-InsFin";"p_gfsm"
+"Cons-InsFin";"Cons.EGF"
 17.23161345;12.77697
 44.09384457;10.32135367
 16.0123031;4.10962519

@@ -7,7 +7,7 @@
 # predict;HCE-Pet
 # prediction_type;rolling
 # method; Part-GFS_granger_graph(n_components=1)
-"HCE-Pet";"p_gfsm"
+"HCE-Pet";"IP.NMM"
 8.695994655;35.82427093
 -0.185035276;18.66790891
 -8.510959379;-18.00947255

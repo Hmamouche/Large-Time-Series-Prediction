@@ -7,7 +7,7 @@
 # predict;Cons-CigTob
 # prediction_type;rolling
 # method; Part-GFS_te(n_components=1)
-"Cons-CigTob";"p_gfsm"
+"Cons-CigTob";"Cons.Com"
 4.592863558;11.38152097
 -8.259460414;1.317958359
 6.50792149;1.968830882

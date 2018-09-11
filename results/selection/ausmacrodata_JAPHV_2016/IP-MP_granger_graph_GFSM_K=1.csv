@@ -7,7 +7,7 @@
 # predict;IP-MP
 # prediction_type;rolling
 # method; Part-GFS_granger_graph(n_components=1)
-"IP-MP";"p_gfsm"
+"IP-MP";"Cons.Other"
 17.31336708;0.203510562
 -3.037220363;19.26408495
 -6.764188859;-2.528576376

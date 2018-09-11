@@ -7,7 +7,7 @@
 # predict;Gov
 # prediction_type;rolling
 # method; Part-GFS_te(n_components=1)
-"Gov";"p_gfsm"
+"Gov";"HSexfinVal"
 4.194470664;11.09550276
 -0.552235124;8.73966356
 6.125980765;-76.30424091

@@ -7,7 +7,7 @@
 # predict;InvtoSales
 # prediction_type;rolling
 # method; Part-GFS_granger_graph(n_components=1)
-"InvtoSales";"p_gfsm"
+"InvtoSales";"SPASXAllOrds"
 -0.018;34.16670584
 -0.013;36.86769673
 0.009;21.84685965

@@ -7,7 +7,7 @@
 # predict;Urate
 # prediction_type;rolling
 # method; Part-GFS_granger_graph(n_components=1)
-"Urate";"p_gfsm"
+"Urate";"FedFunds"
 -0.033333334;4.42333334
 -0.2;-0.58666667
 8.88e-16;1.73666667

@@ -7,7 +7,7 @@
 # predict;HCE-UTF
 # prediction_type;rolling
 # method; Part-GFS_granger_graph(n_components=1)
-"HCE-UTF";"p_gfsm"
+"HCE-UTF";"RetSales"
 4.559453137;15.01147902
 -9.418161949;11.48514984
 3.047532738;13.1839997

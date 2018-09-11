@@ -7,7 +7,7 @@
 # predict;90daysBkbills
 # prediction_type;rolling
 # method; Part-GFS_granger_graph(n_components=1)
-"90daysBkbills";"p_gfsm"
+"90daysBkbills";"Cons.Final"
 1.54;4.506666313
 0.36666667;9.297643731
 1.97666666;5.490534674

@@ -7,7 +7,7 @@
 # predict;Unum-LPT
 # prediction_type;rolling
 # method; Part-GFS_granger_graph(n_components=1)
-"Unum-LPT";"p_gfsm"
+"Unum-LPT";"IP.Min"
 16.69539192;45.02191652
 -4.699432064;27.42506857
 25.7111197;-24.85271244

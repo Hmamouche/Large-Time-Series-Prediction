@@ -7,7 +7,7 @@
 # predict;HCE-MaiRep
 # prediction_type;rolling
 # method; Part-GFS_granger_graph(n_components=1)
-"HCE-MaiRep";"p_gfsm"
+"HCE-MaiRep";"Hstarts.PDA"
 3.891432847;9.82314031
 -0.153065192;-10.92964193
 2.666363211;-29.89897037

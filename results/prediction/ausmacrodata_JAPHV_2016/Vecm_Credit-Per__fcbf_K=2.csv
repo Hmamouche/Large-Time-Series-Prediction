@@ -4,7 +4,7 @@
 # lag_parameter;4
 # number_predictions;75
 # horizon;1
-# max_attributes;9
+# max_attributes;15
 # predict;Credit-Per
 # prediction_type;rolling
 # method; FCBF(n_components=2)

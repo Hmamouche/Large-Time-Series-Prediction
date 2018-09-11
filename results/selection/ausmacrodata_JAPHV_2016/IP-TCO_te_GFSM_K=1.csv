@@ -7,7 +7,7 @@
 # predict;IP-TCO
 # prediction_type;rolling
 # method; Part-GFS_te(n_components=1)
-"IP-TCO";"p_gfsm"
+"IP-TCO";"ExrateUSD"
 -8.721430312;-49.11022272
 13.53194581;31.5963894
 12.68648535;-13.72063236

@@ -7,7 +7,7 @@
 # predict;LoaAdv
 # prediction_type;rolling
 # method; Part-GFS_granger_graph(n_components=1)
-"LoaAdv";"p_gfsm"
+"LoaAdv";"X90daysBkbills"
 9.806389504;1.54
 -4.924300574;0.36666667
 -2.79854481;1.97666666

@@ -7,7 +7,7 @@
 # predict;Emp-HoursFt
 # prediction_type;rolling
 # method; Part-GFS_te(n_components=1)
-"Emp-HoursFt";"p_gfsm"
+"Emp-HoursFt";"Cons.Food"
 3.751502446;4.654129298
 5.523923853;8.522199281
 5.23278534;0.800592009

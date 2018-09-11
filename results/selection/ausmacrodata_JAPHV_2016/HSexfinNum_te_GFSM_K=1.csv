@@ -7,7 +7,7 @@
 # predict;HSexfinNum
 # prediction_type;rolling
 # method; Part-GFS_te(n_components=1)
-"HSexfinNum";"p_gfsm"
+"HSexfinNum";"HStartsACT"
 2.088518489;-23.67315266
 1.032781534;2.907593239
 -59.30819233;-49.96870042

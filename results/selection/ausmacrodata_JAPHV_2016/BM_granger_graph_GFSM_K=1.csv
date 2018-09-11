@@ -7,7 +7,7 @@
 # predict;BM
 # prediction_type;rolling
 # method; Part-GFS_granger_graph(n_components=1)
-"BM";"p_gfsm"
+"BM";"IP.NMM"
 0.154443352;35.82427093
 3.824069596;18.66790891
 -2.058393716;-18.00947255

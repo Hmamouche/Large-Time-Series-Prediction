@@ -7,7 +7,7 @@
 # predict;HStartsVIC
 # prediction_type;rolling
 # method; Part-GFS_granger_graph(n_components=1)
-"HStartsVIC";"p_gfsm"
+"HStartsVIC";"X5yrT.bond"
 8.297846613;0.28333333
 23.59597624;0.15
 -49.13599022;1.31666667

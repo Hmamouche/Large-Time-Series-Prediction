@@ -7,7 +7,7 @@
 # predict;PEXP
 # prediction_type;rolling
 # method; Part-GFS_te(n_components=1)
-"PEXP";"p_gfsm"
+"PEXP";"HStartsSA"
 -49.90572641;-27.52798427
 11.90121964;15.79388653
 -25.53765868;-84.60645956

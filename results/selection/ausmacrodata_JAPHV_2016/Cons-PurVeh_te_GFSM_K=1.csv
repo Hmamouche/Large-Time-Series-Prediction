@@ -7,7 +7,7 @@
 # predict;Cons-PurVeh
 # prediction_type;rolling
 # method; Part-GFS_te(n_components=1)
-"Cons-PurVeh";"p_gfsm"
+"Cons-PurVeh";"UrateLabForce"
 -17.13685898;-15.666667
 3.193139462;41.666667
 16.53424962;-11.333333

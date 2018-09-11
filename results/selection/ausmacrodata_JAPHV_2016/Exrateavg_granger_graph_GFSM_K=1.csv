@@ -7,7 +7,7 @@
 # predict;Exrateavg
 # prediction_type;rolling
 # method; Part-GFS_granger_graph(n_components=1)
-"Exrateavg";"p_gfsm"
+"Exrateavg";"HStartsQLD"
 -54.46786474;18.15595854
 11.58323254;-32.70531707
 -30.58416614;-54.36161478

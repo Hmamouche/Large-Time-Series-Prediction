@@ -7,7 +7,7 @@
 # predict;RetSales
 # prediction_type;rolling
 # method; Part-GFS_te(n_components=1)
-"RetSales";"p_gfsm"
+"RetSales";"ExrateNZD"
 15.01147902;-48.33868156
 11.48514984;-31.65525742
 13.1839997;-19.26290451

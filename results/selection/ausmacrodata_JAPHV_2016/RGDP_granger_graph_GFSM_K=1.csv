@@ -7,7 +7,7 @@
 # predict;RGDP
 # prediction_type;rolling
 # method; Part-GFS_granger_graph(n_components=1)
-"RGDP";"p_gfsm"
+"RGDP";"HStartsWA"
 8.902859911;-23.07382576
 5.039001579;-27.7919411
 -1.002234306;-81.83446384

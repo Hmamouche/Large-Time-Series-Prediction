@@ -7,7 +7,7 @@
 # predict;ExrateMYR
 # prediction_type;rolling
 # method; Part-GFS_te(n_components=1)
-"ExrateMYR";"p_gfsm"
+"ExrateMYR";"HStartsNSW"
 -57.08130991;-6.874321211
 28.80630188;10.25151292
 -19.16319755;-56.59413376

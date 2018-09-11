@@ -7,7 +7,7 @@
 # predict;HSexfinVal
 # prediction_type;rolling
 # method; Part-GFS_granger_graph(n_components=1)
-"HSexfinVal";"p_gfsm"
+"HSexfinVal";"X10yrT.bond"
 11.09550276;0.21666667
 8.73966356;-0.03333333
 -76.30424091;1.1

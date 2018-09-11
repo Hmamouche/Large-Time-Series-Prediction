@@ -7,7 +7,7 @@
 # predict;BusInv
 # prediction_type;rolling
 # method; Part-GFS_granger_graph(n_components=1)
-"BusInv";"p_gfsm"
+"BusInv";"Unum.LFT"
 20.59540653;-7.109359106
 16.44004798;-11.21286533
 -4.294382558;-17.41771767

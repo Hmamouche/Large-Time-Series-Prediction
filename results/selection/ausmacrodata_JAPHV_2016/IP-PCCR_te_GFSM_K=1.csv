@@ -7,7 +7,7 @@
 # predict;IP-PCCR
 # prediction_type;rolling
 # method; Part-GFS_te(n_components=1)
-"IP-PCCR";"p_gfsm"
+"IP-PCCR";"HSexfinVal"
 11.26835079;11.09550276
 -6.106988852;8.73966356
 0.512492062;-76.30424091

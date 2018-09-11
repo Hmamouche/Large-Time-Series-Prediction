@@ -7,7 +7,7 @@
 # predict;Emp-PtPer
 # prediction_type;rolling
 # method; Part-GFS_te(n_components=1)
-"Emp-PtPer";"p_gfsm"
+"Emp-PtPer";"IP.FBT"
 6.692154164;13.00927668
 7.995811782;-19.67609768
 9.984866965;-4.054088758

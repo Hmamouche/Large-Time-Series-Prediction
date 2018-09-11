@@ -7,7 +7,7 @@
 # predict;Credit-Per
 # prediction_type;rolling
 # method; Part-GFS_te(n_components=1)
-"Credit-Per";"p_gfsm"
+"Credit-Per";"HCE.ITA"
 3.280903827;19.73095503
 0.901144297;-15.91427047
 -7.053028526;3.276361783

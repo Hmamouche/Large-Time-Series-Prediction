@@ -7,7 +7,7 @@
 # predict;10yrNSWT-bond
 # prediction_type;rolling
 # method; Part-GFS_te(n_components=1)
-"10yrNSWT-bond";"p_gfsm"
+"10yrNSWT-bond";"LabForce"
 0.36;1.963440694
 -0.1;4.185857054
 1.07333333;3.590961638

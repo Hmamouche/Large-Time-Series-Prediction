@@ -7,7 +7,7 @@
 # predict;HStartsNSW
 # prediction_type;rolling
 # method; Part-GFS_te(n_components=1)
-"HStartsNSW";"p_gfsm"
+"HStartsNSW";"Hstarts.PDA"
 -6.874321211;9.82314031
 10.25151292;-10.92964193
 -56.59413376;-29.89897037

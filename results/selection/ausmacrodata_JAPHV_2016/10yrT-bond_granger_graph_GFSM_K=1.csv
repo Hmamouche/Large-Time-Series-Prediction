@@ -7,7 +7,7 @@
 # predict;10yrT-bond
 # prediction_type;rolling
 # method; Part-GFS_granger_graph(n_components=1)
-"10yrT-bond";"p_gfsm"
+"10yrT-bond";"ExrateCNY"
 0.21666667;-43.87239131
 -0.03333333;39.91092076
 1.1;23.35812134

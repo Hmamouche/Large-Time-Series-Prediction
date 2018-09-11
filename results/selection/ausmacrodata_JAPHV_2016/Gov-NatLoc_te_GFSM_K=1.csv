@@ -7,7 +7,7 @@
 # predict;Gov-NatLoc
 # prediction_type;rolling
 # method; Part-GFS_te(n_components=1)
-"Gov-NatLoc";"p_gfsm"
+"Gov-NatLoc";"Cons.Other"
 13.39643473;0.203510562
 -12.34831118;19.26408495
 6.073132693;-2.528576376

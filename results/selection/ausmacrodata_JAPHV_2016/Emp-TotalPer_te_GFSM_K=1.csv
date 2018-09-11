@@ -7,7 +7,7 @@
 # predict;Emp-TotalPer
 # prediction_type;rolling
 # method; Part-GFS_te(n_components=1)
-"Emp-TotalPer";"p_gfsm"
+"Emp-TotalPer";"HCE.ITA"
 2.464112824;19.73095503
 5.483923863;-15.91427047
 4.783777812;3.276361783

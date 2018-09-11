@@ -7,7 +7,7 @@
 # predict;Cons-Alc
 # prediction_type;rolling
 # method; Part-GFS_te(n_components=1)
-"Cons-Alc";"p_gfsm"
+"Cons-Alc";"IP.TCO"
 2.414273447;-8.721430312
 -5.286420557;13.53194581
 5.505179107;12.68648535

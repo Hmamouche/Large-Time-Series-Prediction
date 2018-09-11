@@ -7,7 +7,7 @@
 # predict;HStartsNSW
 # prediction_type;rolling
 # method; Part-GFS_granger_graph(n_components=1)
-"HStartsNSW";"p_gfsm"
+"HStartsNSW";"X90daysBkbills"
 -6.874321211;1.54
 10.25151292;0.36666667
 -56.59413376;1.97666666

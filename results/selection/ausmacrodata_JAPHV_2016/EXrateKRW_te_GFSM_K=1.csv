@@ -7,7 +7,7 @@
 # predict;EXrateKRW
 # prediction_type;rolling
 # method; Part-GFS_te(n_components=1)
-"EXrateKRW";"p_gfsm"
+"EXrateKRW";"EXrateIDR"
 -35.33784635;-40.88883237
 37.94851688;32.77093107
 -10.85723192;-11.89047214

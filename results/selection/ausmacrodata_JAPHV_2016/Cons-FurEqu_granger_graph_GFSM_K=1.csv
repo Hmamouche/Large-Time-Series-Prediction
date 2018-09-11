@@ -7,7 +7,7 @@
 # predict;Cons-FurEqu
 # prediction_type;rolling
 # method; Part-GFS_granger_graph(n_components=1)
-"Cons-FurEqu";"p_gfsm"
+"Cons-FurEqu";"Mbase"
 9.122854527;0.793838094
 -0.883327558;-3.71033664
 1.373223516;6.271564038

@@ -7,7 +7,7 @@
 # predict;Cons-Final
 # prediction_type;rolling
 # method; Part-GFS_granger_graph(n_components=1)
-"Cons-Final";"p_gfsm"
+"Cons-Final";"ResInv"
 4.506666313;-1.580509136
 9.297643731;36.91051157
 5.490534674;-17.2122436

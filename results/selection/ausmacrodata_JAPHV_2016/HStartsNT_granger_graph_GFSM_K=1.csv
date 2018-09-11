@@ -7,7 +7,7 @@
 # predict;HStartsNT
 # prediction_type;rolling
 # method; Part-GFS_granger_graph(n_components=1)
-"HStartsNT";"p_gfsm"
+"HStartsNT";"HStartsNSW"
 17.75035263;-6.874321211
 -37.79032137;10.25151292
 -36.07428713;-56.59413376

@@ -7,7 +7,7 @@
 # predict;PEXP
 # prediction_type;rolling
 # method; Part-GFS_granger_graph(n_components=1)
-"PEXP";"p_gfsm"
+"PEXP";"Exrateavg"
 -49.90572641;-54.46786474
 11.90121964;11.58323254
 -25.53765868;-30.58416614

@@ -7,7 +7,7 @@
 # predict;Cons-Hea
 # prediction_type;rolling
 # method; Part-GFS_te(n_components=1)
-"Cons-Hea";"p_gfsm"
+"Cons-Hea";"ExrateJPY"
 -2.357360158;-56.0810178
 38.20222363;-2.706710383
 0.195312504;-60.41539571

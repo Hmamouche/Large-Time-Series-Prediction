@@ -7,7 +7,7 @@
 # predict;HCE-Post
 # prediction_type;rolling
 # method; Part-GFS_granger_graph(n_components=1)
-"HCE-Post";"p_gfsm"
+"HCE-Post";"COMMP"
 11.37427574;4.547003006
 -23.86028348;-58.17157487
 2.663716836;30.73715078

@@ -7,7 +7,7 @@
 # predict;CPI-ALL
 # prediction_type;rolling
 # method; Part-GFS_te(n_components=1)
-"CPI-ALL";"p_gfsm"
+"CPI-ALL";"IP.EGWWS"
 4.075490749;-2.0495348
 -0.215277391;6.791334614
 -1.192061858;-2.025320783

@@ -7,7 +7,7 @@
 # predict;ExrateUSD
 # prediction_type;rolling
 # method; Part-GFS_te(n_components=1)
-"ExrateUSD";"p_gfsm"
+"ExrateUSD";"Mbase"
 -49.11022272;0.793838094
 31.5963894;-3.71033664
 -13.72063236;6.271564038

@@ -7,7 +7,7 @@
 # predict;HCE-AVCE
 # prediction_type;rolling
 # method; Part-GFS_te(n_components=1)
-"HCE-AVCE";"p_gfsm"
+"HCE-AVCE";"IP.EGWWS"
 19.66120967;-2.0495348
 -4.795925404;6.791334614
 -10.06935886;-2.025320783

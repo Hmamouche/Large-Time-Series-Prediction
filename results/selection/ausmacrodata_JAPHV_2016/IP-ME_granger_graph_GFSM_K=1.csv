@@ -7,7 +7,7 @@
 # predict;IP-ME
 # prediction_type;rolling
 # method; Part-GFS_granger_graph(n_components=1)
-"IP-ME";"p_gfsm"
+"IP-ME";"PIMP"
 9.327776938;-50.19334541
 -12.9741103;13.32128842
 15.80097719;-24.2423685

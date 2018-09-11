@@ -7,7 +7,7 @@
 # predict;HCE-ParAcc
 # prediction_type;rolling
 # method; Part-GFS_te(n_components=1)
-"HCE-ParAcc";"p_gfsm"
+"HCE-ParAcc";"IP.ME"
 -3.053561549;9.327776938
 -0.034042379;-12.9741103
 2.134604137;15.80097719

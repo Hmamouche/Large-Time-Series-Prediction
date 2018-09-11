@@ -7,7 +7,7 @@
 # predict;Credit-Total
 # prediction_type;rolling
 # method; Part-GFS_granger_graph(n_components=1)
-"Credit-Total";"p_gfsm"
+"Credit-Total";"RGDP"
 0.86853552;8.902859911
 2.86129465;5.039001579
 1.132265815;-1.002234306

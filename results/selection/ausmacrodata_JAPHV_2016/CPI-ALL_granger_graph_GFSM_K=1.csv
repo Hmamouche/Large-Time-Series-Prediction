@@ -7,7 +7,7 @@
 # predict;CPI-ALL
 # prediction_type;rolling
 # method; Part-GFS_granger_graph(n_components=1)
-"CPI-ALL";"p_gfsm"
+"CPI-ALL";"Cons.EGF"
 4.075490749;12.77697
 -0.215277391;10.32135367
 -1.192061858;4.10962519

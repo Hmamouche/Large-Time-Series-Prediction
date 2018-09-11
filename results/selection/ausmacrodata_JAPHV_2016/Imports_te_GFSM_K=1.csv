@@ -7,7 +7,7 @@
 # predict;Imports
 # prediction_type;rolling
 # method; Part-GFS_te(n_components=1)
-"Imports";"p_gfsm"
+"Imports";"HStartsNT"
 -1.793193953;17.75035263
 9.516280621;-37.79032137
 -5.366970802;-36.07428713

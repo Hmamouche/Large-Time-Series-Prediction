@@ -7,7 +7,7 @@
 # predict;Emp-HoursPt
 # prediction_type;rolling
 # method; Part-GFS_te(n_components=1)
-"Emp-HoursPt";"p_gfsm"
+"Emp-HoursPt";"HCE.ITA"
 0.84358592;19.73095503
 12.8370157;-15.91427047
 12.07842973;3.276361783

@@ -7,7 +7,7 @@
 # predict;HCE-ParAcc
 # prediction_type;rolling
 # method; Part-GFS_granger_graph(n_components=1)
-"HCE-ParAcc";"p_gfsm"
+"HCE-ParAcc";"ResInv"
 -3.053561549;-1.580509136
 -0.034042379;36.91051157
 2.134604137;-17.2122436

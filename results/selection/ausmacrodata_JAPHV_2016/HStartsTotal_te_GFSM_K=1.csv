@@ -7,7 +7,7 @@
 # predict;HStartsTotal
 # prediction_type;rolling
 # method; Part-GFS_te(n_components=1)
-"HStartsTotal";"p_gfsm"
+"HStartsTotal";"Cons.PurVeh"
 2.088518489;-17.13685898
 1.032781534;3.193139462
 -59.30819233;16.53424962

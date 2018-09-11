@@ -7,7 +7,7 @@
 # predict;Emp-HoursFt
 # prediction_type;rolling
 # method; Part-GFS_granger_graph(n_components=1)
-"Emp-HoursFt";"p_gfsm"
+"Emp-HoursFt";"Unum.LFT"
 3.751502446;-7.109359106
 5.523923853;-11.21286533
 5.23278534;-17.41771767

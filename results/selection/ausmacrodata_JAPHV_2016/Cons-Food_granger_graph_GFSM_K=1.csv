@@ -7,7 +7,7 @@
 # predict;Cons-Food
 # prediction_type;rolling
 # method; Part-GFS_granger_graph(n_components=1)
-"Cons-Food";"p_gfsm"
+"Cons-Food";"IP.PCCR"
 4.654129298;11.26835079
 8.522199281;-6.106988852
 0.800592009;0.512492062

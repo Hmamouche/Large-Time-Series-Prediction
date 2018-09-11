@@ -7,7 +7,7 @@
 # predict;Unum-LFT
 # prediction_type;rolling
 # method; Part-GFS_granger_graph(n_components=1)
-"Unum-LFT";"p_gfsm"
+"Unum-LFT";"X90daysBkbills"
 -7.109359106;1.54
 -11.21286533;0.36666667
 -17.41771767;1.97666666

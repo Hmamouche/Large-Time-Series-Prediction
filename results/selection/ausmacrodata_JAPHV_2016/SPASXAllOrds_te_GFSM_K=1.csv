@@ -7,7 +7,7 @@
 # predict;SPASXAllOrds
 # prediction_type;rolling
 # method; Part-GFS_te(n_components=1)
-"SPASXAllOrds";"p_gfsm"
+"SPASXAllOrds";"HStartsACT"
 34.16670584;-23.67315266
 36.86769673;2.907593239
 21.84685965;-49.96870042

@@ -7,7 +7,7 @@
 # predict;IP-ME
 # prediction_type;rolling
 # method; Part-GFS_te(n_components=1)
-"IP-ME";"p_gfsm"
+"IP-ME";"HStartsTotal"
 9.327776938;2.088518489
 -12.9741103;1.032781534
 15.80097719;-59.30819233

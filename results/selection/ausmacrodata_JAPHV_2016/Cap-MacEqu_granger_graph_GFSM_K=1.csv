@@ -7,7 +7,7 @@
 # predict;Cap-MacEqu
 # prediction_type;rolling
 # method; Part-GFS_granger_graph(n_components=1)
-"Cap-MacEqu";"p_gfsm"
+"Cap-MacEqu";"LoaAdv"
 20.69426976;9.806389504
 3.505998541;-4.924300574
 -14.37667364;-2.79854481

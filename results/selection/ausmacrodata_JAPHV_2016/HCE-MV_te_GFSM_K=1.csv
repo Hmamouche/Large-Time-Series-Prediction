@@ -7,7 +7,7 @@
 # predict;HCE-MV
 # prediction_type;rolling
 # method; Part-GFS_te(n_components=1)
-"HCE-MV";"p_gfsm"
+"HCE-MV";"HStartsTotal"
 0.892331777;2.088518489
 -3.287012459;1.032781534
 3.239384907;-59.30819233

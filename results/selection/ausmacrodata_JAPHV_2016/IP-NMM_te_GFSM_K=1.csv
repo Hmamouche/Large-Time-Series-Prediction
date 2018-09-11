@@ -7,7 +7,7 @@
 # predict;IP-NMM
 # prediction_type;rolling
 # method; Part-GFS_te(n_components=1)
-"IP-NMM";"p_gfsm"
+"IP-NMM";"COMMP"
 35.82427093;4.547003006
 18.66790891;-58.17157487
 -18.00947255;30.73715078

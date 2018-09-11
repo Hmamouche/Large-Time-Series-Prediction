@@ -7,7 +7,7 @@
 # predict;Urate-LFT
 # prediction_type;rolling
 # method; Part-GFS_granger_graph(n_components=1)
-"Urate-LFT";"p_gfsm"
+"Urate-LFT";"X90daysBkbills"
 -0.066666667;1.54
 -0.166666666;0.36666667
 -0.066666667;1.97666666

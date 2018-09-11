@@ -7,7 +7,7 @@
 # predict;IP-FBT
 # prediction_type;rolling
 # method; Part-GFS_te(n_components=1)
-"IP-FBT";"p_gfsm"
+"IP-FBT";"COMMP"
 13.00927668;4.547003006
 -19.67609768;-58.17157487
 -4.054088758;30.73715078

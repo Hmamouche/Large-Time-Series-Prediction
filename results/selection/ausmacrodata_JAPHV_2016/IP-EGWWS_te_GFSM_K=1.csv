@@ -7,7 +7,7 @@
 # predict;IP-EGWWS
 # prediction_type;rolling
 # method; Part-GFS_te(n_components=1)
-"IP-EGWWS";"p_gfsm"
+"IP-EGWWS";"ExrateNZD"
 -2.0495348;-48.33868156
 6.791334614;-31.65525742
 -2.025320783;-19.26290451

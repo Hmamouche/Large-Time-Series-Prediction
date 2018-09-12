@@ -1,3 +1,5 @@
+# Author: Youssef Hmamouche
+
 require(compiler)
 enableJIT(3)
 
@@ -9,7 +11,7 @@ library(cluster)
 library (factoextra)
 library(parallel)
 
-source("../tools/read_meta_data.R")
+source("src/tools/read_meta_data.R")
 
 
 #' GFSM method using the PAM clustering technique
@@ -174,7 +176,7 @@ gfsm_selection <- function (args){
     colnames = colnames(data)
 
     # Graphs directory
-    graph_dir = paste0("../../results/pre_selection/",meta_data$data_name)
+    graph_dir = paste0("results/pre_selection/",meta_data$data_name)
     graphs = list.files(path = graph_dir, all.files = FALSE)
     
     for (k in 1:length(graphs))
@@ -184,7 +186,7 @@ gfsm_selection <- function (args){
         if (is.element (graph_name, c("granger_graph")))
         threshold = 0.95
 
-        graph_dir = paste0("../../results/pre_selection/",meta_data$data_name,"/",graphs[k])
+        graph_dir = paste0("results/pre_selection/",meta_data$data_name,"/",graphs[k])
 
         matrix = read.table(graph_dir,check.names=FALSE, header = TRUE,row.names = 1, dec = '.',sep=";", comment.char = "#")
         

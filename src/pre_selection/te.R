@@ -1,6 +1,8 @@
+# Author: Youssef Hmamouche
+
 library (TransferEntropy)
 
-source("../tools/read_meta_data.R")
+source("src/tools/read_meta_data.R")
 
 ### arguments
 args = commandArgs(trailingOnly=TRUE)
@@ -39,7 +41,7 @@ if (meta_data$nbre_predictions == 0)
     meta_data$nbre_predictions = as.integer(nrow(data) * 10 / 100)
 
 # construct the output directory
-output_dir = paste0(output_dir,"TE_R.csv")
+output_dir = paste0(output_dir,"te.csv")
 system(paste0(command,' > ', output_dir))
 
 # Delete the last rows on which the forecast evaluations will be done

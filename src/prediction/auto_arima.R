@@ -1,3 +1,5 @@
+# Author: Youssef Hmamouche
+
 # Use compiler and jit for this file (when processing multiple files this improves performance)
 require(compiler)
 enableJIT(3)

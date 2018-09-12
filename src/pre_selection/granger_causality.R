@@ -1,7 +1,9 @@
+# Author: Youssef Hmamouche
+
 #library(lmtest)
 library(vars)
 
-source("../tools/read_meta_data.R")
+source("src/tools/read_meta_data.R")
 
 ### arguments
 args = commandArgs(trailingOnly=TRUE)

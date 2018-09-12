@@ -1,19 +1,21 @@
+# Author: Youssef Hmamouche
+
 from __future__ import print_function
 import sys
-import traceback
+#import traceback
 import glob
-from os import path
+#from os import path
 import re
 import os
-from scipy import *
+#from scipy import *
 
-import networkx as nx
-import matplotlib.pyplot as plt
+#import matplotlib.pyplot as plt
 import numpy as np
 from numpy import inf
 import pandas as pd
 from joblib import Parallel, delayed
 
+sys.path.append ("src")
 import tools.csv_helper as csvh
 
 #------------------------------#
@@ -78,16 +80,16 @@ def hits (fname, output_directory, fname_graph, graph_type, target,  iters = 500
                 
         #hm = [(a[pt], hlast[node] * matrix[node, pt]) for pt in nodes]. reduce (lambda x,y: x + y)
 
-        a[where(isinf(a))]=0.0
-        a[where(isnan(a))]=0.0
+        a[np.where(np.isinf(a))]=0.0
+        a[np.where(np.isnan(a))]=0.0
 
         # compute h
         for node in range (n_nodes):
             for pt in range (n_nodes):
                 h[node] += a[pt] * matrix[node, pt] * matrix[node, ind_target] #* matrix[pt, ind_target]
 
-        h[where(isinf(h))]=0.0
-        h[where(isnan(h))]=0.0
+        h[np.where(np.isinf(h))]=0.0
+        h[np.where(np.isnan(h))]=0.0
 
         # normalize vector
         s = 1.0 / max(h)
@@ -131,7 +133,7 @@ def predictFile (data, target, output_directory, fname, fname_graph, graph_type,
             break
     if test == 0:
         print ("already done!")
-        return
+        #return
     
     
     a, h = hits (fname, output_directory, fname_graph, graph_type, target)
@@ -164,7 +166,7 @@ def main():
     max_features = min(data.shape[1], int (data.meta_header['max_attributes'][0]))
 
     # Search for Adj-matrix for TS file in data folder
-    fname_base = path.basename(fname).split(".")[0]
+    fname_base = os.path.basename(fname).split(".")[0]
     
     output_directory_pre_selection = output_directory.replace("selection", "pre_selection")
     

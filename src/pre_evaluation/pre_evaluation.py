@@ -9,6 +9,8 @@ import hashlib
 
 import pandas as pd
 import numpy as np
+
+sys.path.append ('src')
 import tools.csv_helper as tools
 from tools.global_measures import GLOBAL_MEASURES, MASE2
 

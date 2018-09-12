@@ -1,3 +1,6 @@
+
+# Author: Youssef Hmamouche
+
 require(compiler)
 enableJIT(3)
 
@@ -8,8 +11,8 @@ library(lmtest)
 library(vars)
 library(parallel)
 
-source("../tools/selection_tools.R")
-source("../tools/read_meta_data.R")
+source("src/tools/selection_tools.R")
+source("src/tools/read_meta_data.R")
 
 no_cores <- detectCores() - 1
 
@@ -41,7 +44,7 @@ process_one_target <- function (target_name, colnames, data, max_features, meta_
     
     if (test == 0){
         print ("already exists")
-        return (0)
+        #return (0)
     }
     
     # apply the method

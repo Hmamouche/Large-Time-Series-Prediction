@@ -1,5 +1,8 @@
 #!/usr/local/bin/python
 # -*- coding: utf-8 -*-
+
+# Author: Youssef Hmamouche
+
 from __future__ import print_function
 import sys
 

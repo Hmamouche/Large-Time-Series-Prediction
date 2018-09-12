@@ -1,3 +1,5 @@
+# Author: Youssef Hmamouche
+
 ## elimination space funtion
 trim <- function (x) gsub("^\\s+|\\s+$", "", x)
 

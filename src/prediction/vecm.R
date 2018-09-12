@@ -1,3 +1,5 @@
+# Author: Youssef Hmamouche
+
 # Use compiler and jit for this file (when processing multiple files this improves performance)
 require(compiler)
 enableJIT(3)
@@ -7,7 +9,7 @@ library(lmtest)
 library(vars)
 library(parallel)
 
-source("../tools/read_meta_data.R")
+source("src/tools/read_meta_data.R")
 # Adaptation of the VECM model to make nb_preds predictions on a multivariate time series ts
 vecm <- function (ts, p, nb_preds, horizon, type = "cross_validation")
 {
@@ -45,7 +47,7 @@ predictbase <- function (method_name, prefix_out, reset = 0){
     output_dir = paste0(prefix_out,"Vecm_",data_name[[1]][length(data_name[[1]])])
     if(file.exists(output_dir))
     {
-        ("print file already exists!!")
+        print ("file already exists!!")
         # stop("file already exists!!")
     }
     command = paste0 ('awk \' BEGIN{printf("# predict_model; Vecm\\n");}/^#/ \' ',method_name)
@@ -80,13 +82,28 @@ predictbase <- function (method_name, prefix_out, reset = 0){
     }
 }
 
+
 args = commandArgs(trailingOnly=TRUE)
-largs = length(args)
-print(args[largs])
+
+print (args)
+selection_files = list.files(path = args[1], all.files = FALSE)
+output_directory = args[2]
+
+#print (selection_files[1])
+#stop ()
+
+# Number of files from selection step
+nbre_files = length (selection_files)
 
 # The numbre of cores
 no_cores <- detectCores() -1
 
 # Run comutations on parallel
-mclapply(1:(length(args)-1), function(i) try(predictbase(args[i], args[largs], reset = 0)), mc.cores=no_cores, mc.preschedule = FALSE)
+mclapply(1:nbre_files, function(i) try(predictbase(paste0 (args[1],selection_files[i]), 
+                                                  output_directory,
+                                                   reset = 0)),
+                        mc.cores=no_cores, 
+                        mc.preschedule = FALSE)
+
+
 

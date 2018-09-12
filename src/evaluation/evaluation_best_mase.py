@@ -1,5 +1,6 @@
 import sys
 import pandas as pd
+sys.path.append ("src")
 from tools.global_measures import GLOBAL_MEASURES
 import pickle
 

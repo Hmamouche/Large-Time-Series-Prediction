@@ -5,6 +5,8 @@ import sys
 
 import sklearn.decomposition as decomp
 import pandas as pd
+
+sys.path.append ("src")
 from tools.csv_helper import *
 
 from joblib import Parallel, delayed
@@ -74,7 +76,11 @@ def main():
 
     df = read_csv_and_metadata(fname)
     f_max = min(min(df.shape), int (df.meta_header['max_attributes'][0]))
-    Parallel(-1)(delayed(dimension_reduction)(fname, column, f_max, output_directory) for column in df.meta_header['predict'])
+    
+    for column in df.meta_header['predict']:
+    	dimension_reduction (fname, column, f_max, output_directory)
+    
+    #Parallel(-1)(delayed(dimension_reduction)(fname, column, f_max, output_directory) for column in df.meta_header['predict'])
 
 
 if __name__ == "__main__":

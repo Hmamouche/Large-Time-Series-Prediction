@@ -1,5 +1,9 @@
 #!/usr/local/bin/python
 # -*- coding: utf-8 -*-
+
+# Author: Youssef Hmamouche
+
+
 from __future__ import print_function
 import sys
 
@@ -18,6 +22,7 @@ import pprint
 
 import os
 
+sys.path.append ('src')
 from tools.csv_helper import *
 from tqdm import tqdm
 
@@ -87,13 +92,17 @@ class toSuppervisedData:
 def regularized_VAR (X, targets, nbre_preds, model_):
 
     targets = np.array (targets)
-    predictions = np.empty ([nbre_preds, targets.shape[1]])
-    reals = targets[targets.shape[0] - nbre_preds:targets.shape[0],:]
-
+    
+    predictions = np.empty ([nbre_preds, 1])
+    #print (targets.shape[0])
+    #
+    #exit (1)
+   # reals = targets[targets.shape[0] - nbre_preds:targets.shape[0],:]
+    #exit (1)
     limit = X.shape[0] - nbre_preds
     X_train, test = X[0:limit], X[limit:X.shape[0]]
     Y_train = targets [0:limit]
-
+    
     model = model_.fit (X_train, Y_train)
 
     for j in range(0, nbre_preds):
@@ -132,9 +141,9 @@ def predictbase (fname, output_directory, reset = 0):
     for model in sh_models:
         for target in targets:
             out_fname = output_directory + "/" + model + "_" + target + "_" + model + "_t_K=All.csv"
-            print (target)
+            print ("Processing the column: " + target)
             try:
-                predictions = regularized_VAR (X, data[[target]], nbre_preds, sh_models[model])
+                predictions = regularized_VAR (X, data.ix[p:,target].values, nbre_preds, sh_models[model])
                 predictions.meta_header = data.meta_header
                 predictions.meta_header['predict_model'] = ["VAR"+ model]
                 predictions.meta_header['method'] = [model + "(n_components=all)"]

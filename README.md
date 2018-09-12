@@ -41,12 +41,19 @@ This repository contains the used data, the models and methods implementations, 
     Rscript requirements.R
    ```
 # To reproduce the results
+
+## To execute the hole process for a given dataset "dataname"
 ```bash
-	fab pre_selection:data/"dataname"
-	fab selection:data/"dataname"
-	fab predition:data/"dataname"
-	fab pre_evaluation:data/"dataname"
-	fab evaluation:data/"dataname"
+	python setup.py -pre_selection data/dataname
+	python setup.py -selection data/dataname
+	python setup.py -prediction data/dataname
+	python setup.py -pre_evaluation data/dataname
+	python setup.py -evaluation data/dataname
+
+```
+## To execute just some steps of the process
+```bash
+python setup.y -h 
 ```
 
 

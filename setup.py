@@ -163,8 +163,8 @@ def pre_evaluation (argv):
 
 
 	output_directory = "results/pre_evaluation/" + data_name + '/'
-	if not os.path.exists (output_directory):
-			os.makedirs (output_directory)
+	os.system ("rm -r " +  output_directory)
+	os.makedirs (output_directory)
 
 	script = "src/pre_evaluation/pre_evaluation.py"
 

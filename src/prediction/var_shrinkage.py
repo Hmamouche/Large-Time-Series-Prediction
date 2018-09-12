@@ -29,11 +29,7 @@ from tqdm import tqdm
 sh_models = {
     "BayeRidge" :linear_model.BayesianRidge(),
     "Lasso1" :linear_model.Lasso(alpha = 0.1),
-    #"Lasso2" :linear_model.Lasso(alpha = 0.2),
-    #"Lasso3" :linear_model.Lasso(alpha = 0.3),
     "Ridge1" :linear_model.Ridge(alpha = 0.1),
-    #"Ridge2" :linear_model.Ridge(alpha = 0.2),
-    #"Ridge3" :linear_model.Ridge(alpha = 0.3),
 }
 
 

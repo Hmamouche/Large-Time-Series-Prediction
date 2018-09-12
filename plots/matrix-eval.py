@@ -31,33 +31,28 @@ class bcolors:
 #------  REDUCED NAMES  -------#
 #------------------------------#
 def reduce_methods_names (methods):
-    reduced_cols = []
-    for method in methods:
-        if 'Kernel' in method:
-            reduced_cols.append ('KPCA')
-        elif 'BayeRidge' in method:
-            reduced_cols.append ('BayesianRidge')
-        elif 'PCA' in method and 'Kernel' not in method:
-            reduced_cols.append ('PCA')
-        elif 'Hits_te' in method or 'Hits_TE' in method:
-            reduced_cols.append ('PEHAR-te')
-        elif 'Hits_g' in method:
-            reduced_cols.append ('PEHAR-gc')
-        elif 'Auto' in method:
-            reduced_cols.append ('Arima')
-        elif 'Factor' in method:
-            reduced_cols.append ('FactA')
-        elif 'GFS_te' in method:
-            reduced_cols.append ('GFSM-te')
-        elif 'GFS_gr' in method:
-            reduced_cols.append ('GFSM-gg')
-        elif 'Ridge1' in method and 'Ridge' not in reduced_cols:
-            reduced_cols.append ('Ridge')
-        elif 'Lasso1' in method and 'Lasso' not in reduced_cols:
-            reduced_cols.append ('Lasso')
-        else:
-            reduced_cols.append (method)
-    return reduced_cols
+
+    list = methods. copy ()
+    for i in range (len (list)):
+        if 'Kernel' in list[i]:
+            list[i] = 'KPCA'
+        elif 'Factor' in list[i]:
+            list[i] = 'FactA'
+        elif 'BayeRidge' in list[i]:
+            list[i] = 'BayesianRidge'
+        elif 'PCA' in list[i] and 'Kernel' not in list[i]:
+            list[i] = 'PCA'
+        elif 'Hits_te' in list[i] or 'Hits_TE' in list[i]:
+            list[i] = 'PEHAR-te'
+        elif 'Hits_g' in list[i]:
+            list[i] = 'PEHAR-gc'
+        elif 'Auto' in list[i]:
+            list[i] = 'Arima'
+        elif 'Ridge1' in list[i]:
+            list[i] = 'Ridge'
+        elif 'Lasso1' in list[i]:
+            list[i] = 'Lasso'
+    return list
 
 
 
@@ -97,6 +92,7 @@ def main (xls, cols, target_names, reduced_cols, data_name):
             nbre_var = nbre_var.sort_values(by=[measure])
             
             INDEX = rmse_values.index
+            #print (INDEX)
             
             for i in range (len (INDEX)):
                 matrix [INDEX[i]][i] = int (matrix [INDEX[i]][i] + 1)
@@ -115,25 +111,29 @@ def main (xls, cols, target_names, reduced_cols, data_name):
 
         nbre_var_pf = pd.DataFrame (np.zeros ((len (reduced_cols), 1)))
 
+        
+
+        # Store the best number of variables obtained by each method
+        for i in range (len (reduced_cols)):
+                nbre_var_pf.iloc [i,0] = number_of_variables [cols[i]]
+	   
+        nbre_var_pf.index = reduced_cols
+        nbre_var_pf.to_csv ("plots/csv/"+ file, sep = ';')
+
+
+
         # Dict to DaraFrame
         for i in range (len (reduced_cols)):
             for j in range (len (reduced_cols)):
                 matrix_pf.iloc [i,j] = matrix [cols[i]][j]
 
-        # Dict to DaraFrame
-        for i in range (len (reduced_cols)):
-                nbre_var_pf.iloc [i,0] = number_of_variables [cols[i]]
+        matrix_pf.index = reduced_cols
+        #print (matrix_pf)
 
         
-	# Store the best number of variables obtained by each method
-	nbre_var_pf.index = reduced_cols
-        nbre_var_pf.to_csv ("plots/csv/"+ file, sep = ';')
+        matrix_pf.drop (['Arima'], axis = 0, inplace=True)
         
-
-	matrix_pf.index = reduced_cols
-        #matrix_pf.drop (['Arima'], axis = 0, inplace=True)
-        
-        '''try:
+        try:
             matrix_pf.drop (['Ridge'], axis = 0, inplace=True)
         except ValueError:
             print (ValueError)
@@ -146,9 +146,10 @@ def main (xls, cols, target_names, reduced_cols, data_name):
         try:
             matrix_pf.drop (['BayesianRidge'], axis = 0, inplace=True)
         except ValueError:
-            print (ValueError)'''
+            print (ValueError)
 
         matrix_pf.drop (matrix_pf.columns[matrix_pf.shape[0]:], axis = 1, inplace=True)
+
 
         INDEX = [i for i in range(1,matrix_pf.shape[0] + 1)]        
         
@@ -200,7 +201,11 @@ if __name__ == "__main__":
     cols = np.unique(cols)
 
     #------ CONSTRUCT REDUCED NAMES ---------#
+    #print (cols)
     reduced_cols = reduce_methods_names (cols)
+    #print (cols)
+    #print (reduced_cols)
+    #exit (1)
     
     #------------- MAIN ---------------#
     main (xls, cols, target_names, reduced_cols, data_name)

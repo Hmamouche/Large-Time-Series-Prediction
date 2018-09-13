@@ -40,8 +40,11 @@ This repository contains the used data, the models and methods implementations, 
    ```bash
     sudo Rscript requirements.R
    ```
-   There are some issues when installing rJava package, on linux try install it with: apt-get install r-cran-rjava
+  
+  * Remarque: there are some issues when installing rJava, and Biocomb package, try to install them manually, else, you don't have to 
+  	use the src/selection/fcbf.R script (for the FCBF method).
 
+ 
 # To reproduce the results
 
 ## To execute the hole process for a given dataset "dataname"

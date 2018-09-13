@@ -199,23 +199,64 @@ def evaluation (argv):
 		query = "python " + script + ' ' + data_path + ' ' + output_directory
 		os. system (query)
 
+def make_figures (data):
+
+	if not os.path.exists ("plots/pdf"):
+			os.makedirs ("plots/pdf")
+
+	if not os.path.exists ("plots/csv"):
+			os.makedirs ("plots/csv")
+
+	try:
+		os.system ("python plots/matrix-eval.py " + data)
+	except (ValueError):
+		print ("Error in generating reduction methods plots")
+
+	try:
+		os.system ("python plots/models-eval.py " + data)
+	except (ValueError):
+		print ("Error in generating reduction methods plots")
 
 if __name__ == '__main__':
 
 	if len (sys.argv) == 1:
 		print ("Insufficient arguments, use -h for help")
 
+	# help
 	elif len (sys.argv) == 2 and sys.argv[1] == '-h':
 		usage ()
 
+	# Generate plots for all datasets
+	elif len (sys.argv) == 2 and sys.argv[1] in ['-pl', '-plot']:
+		datasets = glob.glob ("data/*.csv")
+		for data in datasets:
+			make_figures (data)
+
+	# Generate plots for one datasets passed as 3th argument
+	elif len (sys.argv) == 3 and sys.argv[1] in ['-pl', '-plot']:
+		data = sys.argv [2]
+		data_path = "data/" + data.split ('/')[-1]
+
+		if not os.path.exists (data_path):
+			print ("Error, data does not exist.")
+			exit (1)
+
+		make_figures (data_path)
+
+
+	# pre_selection step : computing the causality graphs
 	elif sys.argv [1] in ['-pre_selection','-ps']  :
 		pre_selection (sys.argv[1:])
 
+	# the selection step
 	elif sys.argv [1] in ['-selection', '-s']:
 		selection (sys.argv[1:])
 
+	# the prediction step
 	elif sys.argv [1] in ['-prediction', '-p']:
 		prediction (sys.argv[1:])
+
+	# the evaluation steps
 
 	elif sys.argv [1] in ['-pre_evaluation', '-pe']:
 		pre_evaluation (sys.argv[1:])

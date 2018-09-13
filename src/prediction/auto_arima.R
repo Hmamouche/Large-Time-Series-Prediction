@@ -12,8 +12,35 @@ library(lmtest)
 library(vars)
 library(forecast)
 
-source("../tools/prediction_tools.R")
-source("../tools/read_meta_data.R")
+source("src/tools/read_meta_data.R")
+
+auto_arima_prediction <- function (target, max_p, nb_preds, horizon, type = "cross_validation")
+{
+    # ts: multivariate time series to predict the first attribut
+    # max_p: max lag parameter
+    # nb_preds: number points to predict
+    
+    results = data.frame()
+    for (ind in 1:nb_preds)
+    {
+        if (type == "cross_validation")
+            training_data = target[1:(length(target) - (nb_preds - ind)  - horizon)]
+        
+        else if (type == "rolling")
+            training_data = target[ind:(length(target) - (nb_preds - ind)  - horizon)]
+        
+        tryCatch({
+            model = auto.arima (training_data,  max.p=max_p, max.q=2)
+        }, error=function(e){cat("ERROR :",conditionMessage(e), "\n")})
+        
+        y = forecast(model, h = horizon)[[4]]
+
+        for (j in 1:horizon)
+            results[ind,j] = y[j]
+    }
+    return (results)
+}
+
 
 predictbase <- function (method_name, prefix_out){
     data_name = strsplit(method_name, "/")

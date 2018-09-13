@@ -5,7 +5,7 @@
 
 from __future__ import print_function
 import sys
-
+import glob
 from sklearn.metrics import mean_squared_error
 from sklearn.preprocessing import MinMaxScaler
 from keras.models import Sequential
@@ -19,6 +19,8 @@ import pandas as pd
 import pprint
 
 import os
+
+sys.path.append ('src')
 from tools.csv_helper import *
 
 
@@ -234,8 +236,9 @@ def predictbase (fname, output_directory, reset = 0):
 #------------+      MAIN     +------------#
 #-----------------------------------------#
 def main ():
-    fnames, output_directory = sys.argv[1:-1], sys.argv[-1]
-    Parallel(3)(delayed(predictbase)(fname, output_directory, reset = 0) for fname in fnames)
+    fnames_path, output_directory = sys.argv[1], sys.argv[-1]
+    fnames = glob.glob (fnames_path+"*.csv")
+    Parallel(1)(delayed(predictbase)(fname, output_directory, reset = 0) for fname in fnames)
                  
                  
 if __name__ == "__main__":

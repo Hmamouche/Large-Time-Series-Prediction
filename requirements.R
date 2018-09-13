@@ -2,20 +2,26 @@
 # for rJava, see: https://zhiyzuo.github.io/installation-rJava/
 
 
-packages = c ("kernlab", 
-			"TransferEntropy",
-			"forecast",
-			"cluster",
-			"lmtest",
-			"fpc",
-			"vars",
-			"Biocomb",
-			"rJava",
-			"stats",
-			"parallel",
-			"tsDyn",
-			"factoextra",
-			"NbClust",
-			"psych")
-install.packages (packages, repos='http://cran.us.r-project.org')
+packages = c ("kernlab",
+              "TransferEntropy",
+              "forecast",
+              "cluster",
+              "lmtest",
+              "fpc",
+              "vars",
+              "Biocomb",
+              "rJava",
+              "stats",
+              "parallel",
+              "tsDyn",
+              "factoextra",
+              "NbClust",
+              "psych")
+
+for (package in packages)
+{
+  if (!require(package))
+    try(install.packages (package, repos='http://cran.us.r-project.org'))
+}
+
 

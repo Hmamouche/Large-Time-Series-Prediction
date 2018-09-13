@@ -8,7 +8,7 @@ import glob
 
 
 def usage ():
-	print ("Usage: setup.py arg0 arg1 arg2 arg3")
+	print ("Usage: python setup.py arg0 arg1 arg2 arg3")
 	print ("arg0: operation type (pre_selection, selection, prediction, evaluation)")
 	print ("arg1: data_path")
 	print ("arg2: output_directory")

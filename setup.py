@@ -12,7 +12,7 @@ def usage ():
 	print ("arg0: operation type (pre_selection, selection, prediction, evaluation)")
 	print ("arg1: data_path")
 	print ("arg2: output_directory")
-	print ("arg3: script name (optional), if it is not given, all scripts will be executed")
+	print ("arg3: script name (optional), if it is not given, all scripts of this step will be executed")
 
 # Generic funtion to
 # Execute one script on a file or multiple files in data_path, 
@@ -203,7 +203,7 @@ def evaluation (argv):
 if __name__ == '__main__':
 
 	if len (sys.argv) == 1:
-		print ("Insufficient arguments, add -h for help")
+		print ("Insufficient arguments, use -h for help")
 
 	elif len (sys.argv) == 2 and sys.argv[1] == '-h':
 		usage ()

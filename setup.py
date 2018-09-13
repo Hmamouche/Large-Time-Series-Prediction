@@ -14,6 +14,9 @@ def usage ():
 	print ("arg2: output_directory")
 	print ("arg3: script name (optional), if it is not given, all scripts will be executed")
 
+# Generic funtion to
+# Execute one script on a file or multiple files in data_path, 
+# and put results on output_directory
 def execute_script (data_path, output_directory, script_path):
 
 	script_name = script_path.split ('/')[-1]
@@ -32,9 +35,13 @@ def execute_script (data_path, output_directory, script_path):
 		return
 
 	print (query)
-	os.system (query)
 
-def execute_pred_script (files_path, output_directory, script_path):
+	try:
+		os.system (query)
+	except ValueError:
+		print ("Error in executing the script " + script_path + " on " + data_path)
+
+'''def execute_pred_script (files_path, output_directory, script_path):
 
 	script_name = script_path.split ('/')[-1]
 
@@ -52,7 +59,7 @@ def execute_pred_script (files_path, output_directory, script_path):
 		return
 
 	#print (query)
-	os.system (query)
+	os.system (query)'''
 
 
 
@@ -146,7 +153,7 @@ def prediction (argv):
 			execute_script (data_path, output_directory, "src/prediction/" + script_name)
 
 		elif script_name in ['lstm.py', 'vecm.R']:
-			execute_pred_script (selection_files_path, output_directory, "src/prediction/" + script_name)
+			execute_script (selection_files_path, output_directory, "src/prediction/" + script_name)
 
 	else:
 		usage ()

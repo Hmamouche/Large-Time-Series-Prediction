@@ -34,12 +34,14 @@ This repository contains the used data, the models and methods implementations, 
 
   * install dependencies for python
     ```bash
-    pip install -r requirements.txt.
+    sudo pip install -r requirements.txt.
     ```
    * install dependencies for R
    ```bash
-    Rscript requirements.R
+    sudo Rscript requirements.R
    ```
+   There are some issues when installing rJava package, on linux try install it with: apt-get install r-cran-rjava
+
 # To reproduce the results
 
 ## To execute the hole process for a given dataset "dataname"
@@ -53,7 +55,7 @@ This repository contains the used data, the models and methods implementations, 
 ```
 ## To execute just some steps of the process
 ```bash
-python setup.y -h 
+python setup.py -h 
 ```
 
 

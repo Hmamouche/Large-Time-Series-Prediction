@@ -142,10 +142,10 @@ def prediction (argv):
 		script_name = argv [2]
 		script_name = script_name .split ('/')[-1]
 
-		if script_name in ['var_shrinkage.py', 'Autp_arima.R']:
+		if script_name in ['var_shrinkage.py', 'auto_arima.R']:
 			execute_script (data_path, output_directory, "src/prediction/" + script_name)
 
-		elif script_name in ['Lstm.py', 'vecm.R']:
+		elif script_name in ['lstm.py', 'vecm.R']:
 			execute_pred_script (selection_files_path, output_directory, "src/prediction/" + script_name)
 
 	else:

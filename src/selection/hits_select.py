@@ -32,7 +32,7 @@ class bcolors:
     UNDERLINE = '\033[4m'
 
 #-------------------------------------------------#
-#                    Hits                         #
+#                    Pehar                         #
 #-------------------------------------------------#
 def hits (fname, output_directory, fname_graph, graph_type, target,  iters = 500, min_error =1.0e-3):
     matrix_all = csvh.read_csv_and_metadata(fname_graph, index_col=0)
@@ -92,23 +92,15 @@ def hits (fname, output_directory, fname_graph, graph_type, target,  iters = 500
         h[np.where(np.isnan(h))]=0.0
 
         # normalize vector
-        s = 1.0 / max(h)
+        s = 1.0 / np. sum (h)
         for n in range (n_nodes): h[n]*=s
         # normalize vector
-        s = 1.0 / max(a)
+        s = 1.0 / np. sum (a)
         for n in range (n_nodes): a[n]*=s
         # check convergence, l1 norm
         err = sum ([abs(h[n]-hlast[n]) for n in range (n_nodes)])
 
         i += 1
-        
-    if normalized:
-        s = 1.0/sum(a)
-        for n in range (n_nodes):
-            a[n] *= s
-        s = 1.0/sum(h)
-        for n in range (n_nodes):
-            h[n] *= s
 
     pd_h = pd.concat([pd.DataFrame (targets), pd.DataFrame(h)], axis = 1)
 

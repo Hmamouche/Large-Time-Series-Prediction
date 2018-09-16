@@ -8,11 +8,10 @@ import glob
 
 
 def usage ():
-	print ("Usage: python setup.py arg0 arg1 arg2 arg3")
-	print ("arg0: operation type (pre_selection, selection, prediction, evaluation)")
+	print ("Usage: python setup.py arg0 arg1 arg2")
+	print ("arg0: operation type (-pre_selection, -selection, -prediction, -evaluation, -plot)")
 	print ("arg1: data_path")
-	print ("arg2: output_directory")
-	print ("arg3: script name (optional), if it is not given, all scripts of this step will be executed")
+	print ("arg2: script name (optional), if it is not given, all scripts of this step will be executed")
 
 # Generic funtion to
 # Execute one script on a file or multiple files in data_path, 
@@ -32,9 +31,8 @@ def execute_script (data_path, output_directory, script_path):
 		query = "Rscript " + script_path  + " " + data_path + " " + output_directory
 
 	else:
+		print ("Current verstion accept just python and R files.")
 		return
-
-	print (query)
 
 	try:
 		os.system (query)
@@ -225,6 +223,14 @@ if __name__ == '__main__':
 	# help
 	elif len (sys.argv) == 2 and sys.argv[1] == '-h':
 		usage ()
+
+	elif len (sys.argv) == 5 and sys.argv[1] == '-g':
+		execute_script (sys.argv[2], sys.argv[3], sys.argv[4])
+
+	elif len (sys.argv) == 5 and sys.argv[1] == '-mlf':
+		for i in range (2, len (sys.argv)):
+			# sys.argv[2]: script, sys.argv[3]: outout dir
+			execute_script (sys.argv[i], sys.argv[3], sys.argv[2])
 
 	# Generate plots for all datasets
 	elif len (sys.argv) == 2 and sys.argv[1] in ['-pl', '-plot']:

@@ -37,9 +37,9 @@ class bcolors:
     BOLD = '\033[1m'
     UNDERLINE = '\033[4m'
 
-#----------------------------------------#
-#----+     TO SUPPERISE DATA      +------#
-#----------------------------------------#
+#-------------------------------------------------------------#
+#----+     TRANSFORM THE DATA TO SUPPERISED STRUCTURE  +------#
+#-------------------------------------------------------------#
 class toSuppervisedData:
     targets = np.empty([0,0],dtype=float)
     data = np.empty([0,0],dtype=float)
@@ -109,18 +109,18 @@ def normalize (M):
 
     return minMax
 
-#-----------------------------------------------------------#
-#----+     fit an LSTM network to training data      +------#
-#-----------------------------------------------------------#
+#--------------------------------------#
+#----+     DENORMALIZATION      +------#
+#--------------------------------------#
 def inverse_normalize (M,minMax):
     for i in range(M.shape[0]):
         M[i] = M[i] * (minMax[1] - minMax[0]) + minMax[0]
     return M
 
-#-----------------------------------------------------------#
-#----+     fit an LSTM network to training data      +------#
-#-----------------------------------------------------------#
-def fit_lstm(train, look_back, batch_size, nb_epoch, neurons):
+#------------------------------------------#
+#----+     fit an LSTM network      +------#
+#------------------------------------------#
+def fit_lstm (train, look_back, batch_size, nb_epoch, neurons):
     X, y = train[:, 1:train.shape[1]], train[:, 0]
     X = X.reshape(X.shape[0], look_back, X.shape[1] / look_back)
     
@@ -131,17 +131,18 @@ def fit_lstm(train, look_back, batch_size, nb_epoch, neurons):
     model.compile(loss='mean_squared_error', optimizer='adam')
     
     for i in range(nb_epoch):
-        model.fit(X, y, epochs=1, batch_size=batch_size, verbose=0, shuffle=False)
+        model.fit(X, y, epochs=1, batch_size=batch_size, verbose=1, shuffle=False)
         model.reset_states()
     return model
 
 #--------------------------------------------------------------#
 #------------+     Make a One-Step Forecast       +------------#
 #--------------------------------------------------------------#
-def forecast_lstm(model,look_back, batch_size, X):
-    X = X.reshape(1, look_back, len(X)/look_back)
-    yhat = model.predict(X, batch_size=batch_size)
-    return yhat[0,0]
+def forecast_lstm (model,look_back, batchSize, X):
+    X = X.reshape(X.shape[0], look_back, X.shape[1] / look_back)
+    yhat = model.predict (X,  batch_size = batchSize)
+    #print (yhat, yhat[-1,0])
+    return yhat[-1,0]
 
 #-----------------------------------------#
 #------------+     LSTM      +------------#
@@ -161,27 +162,36 @@ def imp_LSTM (data, nbre_preds, p, nbre_iterations, neurons, batchSize = 1):
     reals = targets[targets.shape[0] - nbre_preds:targets.shape[0],:]
     X = np.concatenate ((targets[:,0:1], X), axis = 1)
     limit = X.shape[0] - nbre_preds
-    train, test = X[0:limit], X[limit:X.shape[0]]
+    
+    # Use 2 mini-batchs
+    if (limit % 2 == 1):
+    	train, test = X[1:limit], X[limit:X.shape[0]]
+    	batchSize = (limit - 1) / 2
+    else:
+    	train, test = X[0:limit], X[limit:X.shape[0]]
+    	batchSize = limit / 2
+    	batchSize = 1
+    
+    #batchSize = 1
     lstm_model =  fit_lstm(train, p, batchSize, nbre_iterations, neurons)
     prediction = []
     
-    for j in range(0, nbre_preds):
+    for j in range (0, nbre_preds):
         limit = X.shape[0] - nbre_preds + j
-        train, test = X[0:limit], X[limit:limit+1]
-        Xx, yy = test[0, 1:test.shape[1]], test[0, 0]
+        test = X [limit - batchSize + 1  :limit+1]
+        Xx, yy = test [:, 1:test.shape [1]], test[:, 0]
+        #print (Xx. shape)
             
         # prediction
-        yhat = forecast_lstm(lstm_model,p, batchSize, Xx)
-        prediction.append(yhat)
+        yhat = forecast_lstm (lstm_model, p, batchSize, Xx)
+        prediction.append (yhat)
     
         # update the model: online learning
-        X_update = X[j:limit+1]
+        X_update = X[limit - batchSize + 1:limit+1]
         Xx, yy = X_update[:, 1:X.shape[1]], X_update[:, 0]
         Xx = Xx.reshape(Xx.shape[0], p, Xx.shape[1] / p)
 
-        lstm_model.fit(Xx, yy, epochs=1, batch_size= min (batchSize, Xx.shape[0]), verbose = 0)
-        #lstm_model.reset_states()
-    
+        lstm_model.fit(Xx, yy, epochs=1, batch_size= batchSize, verbose = 0)    
     
     predictions[:,0] = prediction
     predictions = inverse_normalize (predictions,minMax[0,:])
@@ -205,7 +215,7 @@ def predictbase (fname, output_directory, reset = 0):
     target_names =  (meta_header['predict'])
     #X_train = X_train.tail (X_train.shape[0] * 8 / 10)
     batchSize = 1
-    nbre_iterations = 30
+    nbre_iterations = 30 # it's the number of epochs in fact
     
     if not os.path.exists(out_fname):
         n_predictions = 0
@@ -237,7 +247,11 @@ def predictbase (fname, output_directory, reset = 0):
 #-----------------------------------------#
 def main ():
     fnames_path, output_directory = sys.argv[1], sys.argv[-1]
-    fnames = glob.glob (fnames_path+"*.csv")
+    if (sys.argv[1].split ('.')[-1] == 'csv'):
+    	fnames = [sys.argv[1]]
+    else:
+    	fnames = glob.glob (fnames_path+"*.csv")
+    	
     Parallel(1)(delayed(predictbase)(fname, output_directory, reset = 0) for fname in fnames)
                  
                  

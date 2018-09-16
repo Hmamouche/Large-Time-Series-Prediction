@@ -11,7 +11,7 @@ library(lmtest)
 library(vars)
 library(parallel)
 
-source("src/tools/selection_tools.R")
+#source("src/tools/selection_tools.R")
 source("src/tools/read_meta_data.R")
 
 no_cores <- detectCores() - 1
@@ -48,7 +48,7 @@ process_one_target <- function (target_name, colnames, data, max_features, meta_
     }
     
     # apply the method
-    try ({FFS = select.fast.filter (datax ,  disc.method = "equal frequency", threshold = 0.2, attrs.nominal=numeric())
+    try ({FFS = select.fast.filter (datax ,  disc.method = "MDL", threshold = 0.2, attrs.nominal=numeric())
         
         
         factors = FFS$NumberFeature

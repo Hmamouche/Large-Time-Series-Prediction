@@ -1,6 +1,4 @@
 # Some of these packages should not be installed, but can be installed manually, like rJava and TransferEntropy
-# for rJava, see: https://zhiyzuo.github.io/installation-rJava/
-
 
 packages = c ("kernlab",
               "TransferEntropy",

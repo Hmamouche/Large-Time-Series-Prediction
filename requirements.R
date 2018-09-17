@@ -1,4 +1,4 @@
-# Some of these packages should not be installed, but can be installed manually, like rJava and TransferEntropy
+# Some of these packages may can not be installed, but can be installed manually, like rJava and TransferEntropy
 
 packages = c ("kernlab",
               "TransferEntropy",

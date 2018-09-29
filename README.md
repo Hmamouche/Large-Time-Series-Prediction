@@ -1,12 +1,12 @@
-# Thesis Experiments
+# A Process for Large Time Series Prediction
 
-This repository contains the used data, the models and methods implementations including the proposed algorithms,  and the results associated with the work of the thesis. The results include the  graphs of dependenceis between time series, the results of the feature selection, the predictions using different prediction models, and finally the prediction accuracy evaluations.
+This repository a process for large time series prediction, and an experiments analysis. It contains the used data, the models and methods implementations including the proposed algorithms,  and the obtained results. The results include the  graphs of dependencies between time series, the results of the feature selection, the predictions using different prediction models, and finally the prediction accuracy evaluations.
 
 # Structure:
 
 ## data: the used multivariate time series
 
-## src: methdods and models implementations
+## src: methods and models implementations
 
 	* tools: some function for reading and writing files and metadata
 
@@ -49,16 +49,16 @@ This repository contains the used data, the models and methods implementations i
 
 ## To execute the hole process for a given dataset "dataname"
 ```bash
-	python setup.py -pre_selection data/dataname
-	python setup.py -selection data/dataname
-	python setup.py -prediction data/dataname
-	python setup.py -pre_evaluation data/dataname
-	python setup.py -evaluation data/dataname
+	python run.py -pre_selection data/dataname
+	python run.py -selection data/dataname
+	python run.py -prediction data/dataname
+	python run.py -pre_evaluation data/dataname
+	python run.py -evaluation data/dataname
 
 ```
 ## To execute just some steps of the process
 ```bash
-python setup.py -h 
+python run.py -h 
 ```
 
 

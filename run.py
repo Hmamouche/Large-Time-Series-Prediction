@@ -39,28 +39,6 @@ def execute_script (data_path, output_directory, script_path):
 	except ValueError:
 		print ("Error in executing the script " + script_path + " on " + data_path)
 
-'''def execute_pred_script (files_path, output_directory, script_path):
-
-	script_name = script_path.split ('/')[-1]
-
-	if not os.path.exists(script_path):
-		print ("Error: the script does not exist!")
-		exit (1)
-
-	if script_name.endswith('.py'):
-		query = "python " + script_path + " " + files_path + " " + output_directory
-
-	elif script_name.endswith('.R'):
-		query = "Rscript " + script_path  + " " + files_path + " " + output_directory
-
-	else:
-		return
-
-	#print (query)
-	os.system (query)'''
-
-
-
 def pre_selection (argv):
 
 	data_path = argv [1]
@@ -79,8 +57,6 @@ def pre_selection (argv):
 	graphs_path = "src/pre_selection/"
 
 	if len (argv) == 2:
-
-		
 		graph_names = [fn for fn in os.listdir(graphs_path)
               if any(fn.endswith(ext) for ext in ['.py', '.R'])]
 
@@ -90,7 +66,7 @@ def pre_selection (argv):
 
 	elif len (argv) == 3:
 		script_name = argv [2]
-		execute_script (data_path, output_directory, graphs_path + script_name)
+		execute_script (data_path, output_directory,  script_name)
 
 	else:
 		usage ()

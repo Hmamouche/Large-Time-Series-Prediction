@@ -4,7 +4,8 @@ This repository contains process for large time series prediction, and an experi
 
 # Structure:
 
-## data: the used multivariate time series
+## data: 
+	* the used multivariate time series
 
 ## src: methods and models implementations
 

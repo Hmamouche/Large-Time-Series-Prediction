@@ -115,11 +115,11 @@ if __name__ == "__main__":
     os.system ("hadoop fs -mkdir -p /user/hduser/features_selection")
     os.system ("hadoop fs -mkdir -p /user/hduser/features_selection/input_mat")
     
-    iters = 20
-    target_index = 'CAC40'
-    input_mat = sys.argv[1]
-    #exec_pehar (input_mat)
-    #data_name = input_mat. split ('/')[-1]. split ('.')[0]
+    iters = 30
+    if (len (sys.argv[1].split ('/')) > 1):
+        input_mat = sys.argv[1].split ('/')[1] .split ('.')[0]
+    else:
+        input_mat = sys.argv[1]. split ('.')[0]
  
     df = sqlcontext.read. parquet ('hdfs://master:9000/user/hduser/matrix_of_depend/' + input_mat)
     #df. show ()
@@ -147,7 +147,7 @@ if __name__ == "__main__":
     features.write.format("com.databricks.spark.csv").\
     mode("overwrite").\
     option("header", "true").\
-    save("/user/hduser/features_selection/" + input_mat + "/features.csv") 
+    save("/user/hduser/features_selection/" + input_mat) 
     #features. rdd. saveAsTextFile ("/user/hduser/features_selection/" + input_mat + "/features.txt", mode='overwrite')
     #print (auths. collect ())
     #print (hubs. map (lambda x: x[1]). reduce (lambda x, y: x + y))

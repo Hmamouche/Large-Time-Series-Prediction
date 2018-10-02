@@ -39,8 +39,8 @@ def local_to_hdfs (data_path):
     cols = df.columns[1:]
       
     rdd = sc.parallelize ((cols. index (cols[i]), cols[i], df.select (cols[i]). toPandas() [cols[i]]. tolist ()) for i in range (len (cols)))
-    rdd. toDF (["id", "colname", "time_seres"]). show ()
-    rdd. toDF (["id", "colname", "time_seres"]). write. parquet ("/user/hduser/data/" + data_name, mode='overwrite')
+    rdd. toDF (["id", "colname", "time_series"]). show ()
+    rdd. toDF (["id", "colname", "time_series"]). write. parquet ("/user/hduser/data/" + data_name, mode='overwrite')
 
 if __name__ == "__main__":
 

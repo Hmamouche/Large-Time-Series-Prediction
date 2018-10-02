@@ -20,25 +20,44 @@ sqlcontext =  SQLContext(sc)
 sc.setLogLevel('WARN')
 
 
-def get_line (df, col):
+def get_line (df,data, col):
+
+    # extract target + predictors
     line = df. where (df.Col == col).rdd. flatMap (lambda x: x). collect ()
-    #print (line)
     line = [line[0]] + line[2]. split (" ")
-    return sc. parallelize ([line])
+
+    # construct input data of the model
+    line = [str (x) for x in line]
+    print (line)
+    small_data = data. filter (data["colname"].isin (line)).\
+    select (["time_series"]).rdd. flatMap (lambda x: x).toDF ().toPandas(). transpose ()
+    small_data.columns = line
+    #print (small_data)
+    return sc. parallelize ([small_data])
+
+def predict_one_col (x):
+    return 0    
+
 
 if __name__ == "__main__":
 
+    print (19 * '-')
     input_data = sys.argv[1]
 
+    if (len (input_data.split ('/')) > 1):
+        data_name = input_data.split ('/')[1] .split ('.')[0]
+    else:
+        data_name = input_data. split ('.')[0]
+
+    graph_name= data_name + '_gc'
     # data
-    data = sqlcontext.read. parquet ('hdfs://master:9000/user/hduser/'+ input_data) 
-    
+    data = sqlcontext.read. parquet ('data/'+data_name) 
+    os.system ('hdfs dfs  -mkdir -p prediction/')    
     # features
     df = sqlcontext.read. format ("com.databricks.spark.csv").\
     option("header", "true").\
     option("sep",",").\
-    load("hdfs://master:9000/user/hduser/features_selection/ausmacro_gc/features.csv/")
-    cols = df. where (df.Col == "BusInv").rdd. flatMap (lambda x: x). collect ()
+    load("features_selection/"+ graph_name)
     
     # colnames
     colnames = data. select ("colname"). distinct ().  rdd. map (lambda x: x[0]). collect ()
@@ -46,22 +65,25 @@ if __name__ == "__main__":
     models = sc.emptyRDD ()
 
     for col in colnames:
-        models = models.union (get_line (df, col));
+        #get_line (df, col)
+        models = models.union (get_line (df, data, col));
 
-    
-    df. show ()
-    models. toDF (). show ()
-    exit (1)
-    
-    small_data  = pd.DataFrame (data. where (col("colname").isin (cols)).\
-    select (["time_seres"]).rdd. flatMap (lambda x: x). collect ()). transpose ()
-    small_data.columns = cols
-    
-    data. where (col("colname").isin (cols)). show ()
-    print (small_data)
 
-    predictions, reals = imp_LSTM (small_data. values, 10, 4, 20, 5, batchSize = 1)
-    print (predictions)
+
+    lag_parameter = 4
+    number_of_predictions = 10
+    number_of_neurons = 5
+    number_of_iteration = 20
+    predictions = models.map (lambda x: imp_LSTM (x. values, 
+                                                  number_of_predictions,
+                                                  lag_parameter, 
+                                                  number_of_iteration, 
+                                                  number_of_neurons, 
+                                                  batchSize = 1)[0]).\
+                            toDF (). write. parquet ("prediction/" + data_name, mode='overwrite')
+    
+    
+
 
 
 

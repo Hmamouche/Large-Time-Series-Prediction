@@ -163,16 +163,15 @@ def imp_LSTM (data, nbre_preds, p, nbre_iterations, neurons, batchSize = 1):
     X = np.concatenate ((targets[:,0:1], X), axis = 1)
     limit = X.shape[0] - nbre_preds
     
-    # Use 2 mini-batchs
-    if (limit % 2 == 1):
+    # If we want to use 2 mini-batchs
+    '''if (limit % 2 == 1):
     	train, test = X[1:limit], X[limit:X.shape[0]]
     	batchSize = (limit - 1) / 2
     else:
     	train, test = X[0:limit], X[limit:X.shape[0]]
-    	batchSize = limit / 2
-    	batchSize = 1
+    	batchSize = limit / 2'''
+    batchSize = 1
     
-    #batchSize = 1
     lstm_model =  fit_lstm(train, p, batchSize, nbre_iterations, neurons)
     prediction = []
     

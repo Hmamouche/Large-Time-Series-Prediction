@@ -1,13 +1,13 @@
 # This a sample test of the process  on ebob-l.csv dataset.
 
 # Put data to hdfs
-sh jobs/local_to_distributed.sh data/ebob-l.csv
+sh jobs/local_to_distributed.sh data/ausmacro.csv
 
 # Compute the Granger causality graph
-sh jobs/causality_mat.sh data/ebob-l
+sh jobs/causality_mat.sh data/ausmacro
 
 # Execute the Pehar algorithm (feature selection)
-sh jobs/pehar_dist.py ebob-l_gc
+sh jobs/pehar_dist.py ausmacro_gc
 
 # Compute prediction
-sh jobs/prediction.sh ebob-l_gc
+sh jobs/prediction.sh ausmacro

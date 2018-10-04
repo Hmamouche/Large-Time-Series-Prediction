@@ -8,7 +8,7 @@ import glob
 
 
 def usage ():
-	print ("Usage: python setup.py arg0 arg1 arg2")
+	print ("Usage: python run.py arg0 arg1 arg2")
 	print ("arg0: operation type (-pre_selection, -selection, -prediction, -evaluation, -plot)")
 	print ("arg1: data_path")
 	print ("arg2: script name (optional), if it is not given, all scripts of this step will be executed")

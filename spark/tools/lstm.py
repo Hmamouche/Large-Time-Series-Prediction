@@ -136,8 +136,10 @@ def fit_lstm (train, look_back, batch_size, nb_epoch, neurons):
 def forecast_lstm (model,look_back, batchSize, X):
     X = X.reshape(X.shape[0], look_back, X.shape[1] / look_back)
     yhat = model.predict (X,  batch_size = batchSize)
-    #print (yhat, yhat[-1,0])
-    return yhat[-1,0]
+    
+    #print (yhat)
+    #print (yhat[0, 0])
+    return yhat[0, 0]
 
 #-----------------------------------------#
 #------------+     LSTM      +------------#
@@ -159,14 +161,16 @@ def imp_LSTM (data, nbre_preds, p, nbre_iterations, neurons, batchSize = 1):
     limit = X.shape[0] - nbre_preds
     
     # Use 2 mini-batchs
-    if (limit % 2 == 1):
-    	train, test = X[1:limit], X[limit:X.shape[0]]
-    	batchSize = (limit - 1) / 2
-    else:
-    	train, test = X[0:limit], X[limit:X.shape[0]]
-    	batchSize = limit / 2
-    	batchSize = 1
-    
+    #if (limit % 2 == 1):
+    #	train, test = X[1:limit], X[limit:X.shape[0]]
+    #	batchSize = (limit - 1) / 2
+    #else:
+    #	train, test = X[0:limit], X[limit:X.shape[0]]
+    #	batchSize = limit / 2
+    #	batchSize = 1
+
+    train, test = X[0:limit], X[limit:X.shape[0]]
+    batchSize = 1    
     #batchSize = 1
     lstm_model =  fit_lstm(train, p, batchSize, nbre_iterations, neurons)
     prediction = []
@@ -192,7 +196,7 @@ def imp_LSTM (data, nbre_preds, p, nbre_iterations, neurons, batchSize = 1):
     predictions = inverse_normalize (predictions,minMax[0,:])
     reals = inverse_normalize (reals, minMax[0,:])
 
-    return np.array(predictions),reals
+    return predictions
 
 
 #------------+      MAIN     +------------#

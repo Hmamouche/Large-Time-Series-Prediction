@@ -14,13 +14,13 @@ import pandas as pd
 import sys 
 import os
 
-conf = (SparkConf(). set ("--executor-cores", "3"))
+conf = (SparkConf(). set ("--executor-cores", "7"))
 sc = SparkContext(conf = conf)
 sqlcontext =  SQLContext(sc)
 sc.setLogLevel('WARN')
 
 
-def get_line (df,data, col):
+def extract_data (df,data, col):
 
     # extract target + predictors
     line = df. where (df.Col == col).rdd. flatMap (lambda x: x). collect ()
@@ -29,15 +29,21 @@ def get_line (df,data, col):
     # construct input data of the model
     line = [str (x) for x in line]
     print (line)
-    small_data = data. filter (data["colname"].isin (line)).\
-    select (["time_series"]).rdd. flatMap (lambda x: x).toDF ().toPandas(). transpose ()
-    small_data.columns = line
-    #print (small_data)
-    return sc. parallelize ([small_data])
+  
+    # First columns 
+    small_data = data. where (data["colname"] == line[0]).\
+        select (["time_series"]).rdd. flatMap (lambda x: x).toDF ().toPandas(). transpose () 
 
-def predict_one_col (x):
-    return 0    
+    # Add the other columns to the dataframe by concatenation
+    for name in line[1:]:
+        attribute = data. where (data["colname"] == name).\
+                                select (["time_series"]).rdd. flatMap (lambda x: x).toDF ().toPandas(). transpose ()
+        
+        small_data = pd.concat ([small_data, attribute], axis = 1)
+    
+    return sc. parallelize ([[col, small_data. values]])
 
+    
 
 if __name__ == "__main__":
 
@@ -60,27 +66,34 @@ if __name__ == "__main__":
     load("features_selection/"+ graph_name)
     
     # colnames
-    colnames = data. select ("colname"). distinct ().  rdd. map (lambda x: x[0]). collect ()
-    #print (colnames)
+    colnames = data. select ("colname"). distinct ().  rdd. map (lambda x: x[0]). collect ()[0:8]
+    
+
+    # Construct an Rdd that contains the predictiosn of each target time series
     models = sc.emptyRDD ()
 
     for col in colnames:
-        #get_line (df, col)
-        models = models.union (get_line (df, data, col));
+        models = models.union (extract_data (df, data, col))
+
+    #models = models.partitionByKey ()
 
 
-
+    # TODO : read these information from metadata automatically
     lag_parameter = 4
     number_of_predictions = 10
     number_of_neurons = 5
     number_of_iteration = 20
-    predictions = models.map (lambda x: imp_LSTM (x. values, 
-                                                  number_of_predictions,
-                                                  lag_parameter, 
-                                                  number_of_iteration, 
-                                                  number_of_neurons, 
-                                                  batchSize = 1)[0]).\
-                            toDF (). write. parquet ("prediction/" + data_name, mode='overwrite')
+
+
+    # Run lstm in parallel on all selection file
+    predictions = models.map (lambda x: [x[0], imp_LSTM (x[1],\
+                                                  number_of_predictions,\
+                                                  lag_parameter,\
+                                                  number_of_iteration,\
+                                                  number_of_neurons,\
+                                                  batchSize = 1). tolist ()]). toDF (['Variables', 'Predictions'])
+    predictions. show ()
+    predictions. write. parquet ("prediction/" + data_name, mode='overwrite')
     
     
 

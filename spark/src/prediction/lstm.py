@@ -66,7 +66,7 @@ if __name__ == "__main__":
     load("features_selection/"+ graph_name)
     
     # colnames
-    colnames = data. select ("colname"). distinct ().  rdd. map (lambda x: x[0]). collect ()[0:8]
+    colnames = data. select ("colname"). distinct ().  rdd. map (lambda x: x[0]). collect ()
     
 
     # Construct an Rdd that contains the predictiosn of each target time series
@@ -79,10 +79,11 @@ if __name__ == "__main__":
 
 
     # TODO : read these information from metadata automatically
-    lag_parameter = 4
-    number_of_predictions = 10
-    number_of_neurons = 5
-    number_of_iteration = 20
+    if data_name == 'ausmacro' or data_name == 'us_dif':
+        lag_parameter = 4
+        number_of_predictions = 10
+        number_of_neurons = 5
+        number_of_iteration = 20
 
 
     # Run lstm in parallel on all selection file

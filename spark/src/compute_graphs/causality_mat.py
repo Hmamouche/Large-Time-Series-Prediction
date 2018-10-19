@@ -47,7 +47,7 @@ def distributed_pairwise_caus (input_data):
     
     data_name = input_data. split ('/')[-1]. split ('.')[0]   
         
-    df = sqlcontext.read. parquet ('hdfs://master:9000/user/hduser/'+ input_data)                             
+    df = sqlcontext.read. parquet (input_data)                             
     #df. show (13689)
     rdd = df. rdd 
             

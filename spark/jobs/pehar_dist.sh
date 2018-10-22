@@ -1,6 +1,9 @@
+#!/bin/bash
+# feature selection with pehar algorithm
+
 spark-submit --class testspark \
             --executor-cores 5 \
             --master yarn\
  			--deploy-mode client\
     		--py-files tools.zip \
-    		src/feature_selection/algo_hits.py $1
+    		src/feature_selection/pehar_dist.py $1

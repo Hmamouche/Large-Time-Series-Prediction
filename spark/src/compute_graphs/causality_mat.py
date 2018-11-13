@@ -19,7 +19,7 @@ from pyspark.sql.functions import isnan, when, count, col
 import sys
 import os
 
-conf = (SparkConf().set("num-executors", "2"))
+conf = (SparkConf())
 
 sc = SparkContext(conf = conf)
 sc.setLogLevel('WARN')

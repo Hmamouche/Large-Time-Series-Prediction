@@ -11,7 +11,7 @@ from pyspark.sql.functions import *
 import sys
 import os
 
-conf = (SparkConf () .set ("num-executors", "2"))
+conf = (SparkConf ())
 sc = SparkContext (conf = conf)
 sqlcontext =  SQLContext(sc)
 

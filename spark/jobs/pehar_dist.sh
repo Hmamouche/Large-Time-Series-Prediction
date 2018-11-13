@@ -2,7 +2,8 @@
 # feature selection with pehar algorithm
 
 spark-submit --class testspark \
-            --executor-cores 5 \
+            --num-executors, 1 \
+            #--executor-cores 5 \
             --master yarn\
  			--deploy-mode client\
     		--py-files tools.zip \

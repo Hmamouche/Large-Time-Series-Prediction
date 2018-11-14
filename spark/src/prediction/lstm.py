@@ -14,7 +14,7 @@ import pandas as pd
 import sys 
 import os
 
-conf = (SparkConf(). set ("--executor-cores", "7"))
+conf = (SparkConf())
 sc = SparkContext(conf = conf)
 sqlcontext =  SQLContext(sc)
 sc.setLogLevel('WARN')

@@ -94,7 +94,7 @@ def select_k (Mat, target, iters, k, error = 1.0e-3):
  
 # Applying the pehar algorithm on all variables of a input dataset
 def exec_pehar (input_mat):
-    df = sqlcontext.read. parquet ('hdfs://master:9000/user/hduser/matrix_of_depend/' + input_mat)
+    df = sqlcontext.read. parquet ('matrix_of_depend/' + input_mat)
     targets = df. select (['P1']). distinct (). rdd. map (lambda x: (x, []))
     
 def list_to_str (x):
@@ -104,8 +104,8 @@ def list_to_str (x):
     return res 
 if __name__ == "__main__":
     
-    os.system ("hadoop fs -mkdir -p /user/hduser/features_selection")
-    os.system ("hadoop fs -mkdir -p /user/hduser/features_selection/input_mat")
+    os.system ("hadoop fs -mkdir -p features_selection")
+    os.system ("hadoop fs -mkdir -p features_selection/input_mat")
     
     iters = 30
     if (len (sys.argv[1].split ('/')) > 1):

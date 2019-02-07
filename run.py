@@ -9,10 +9,14 @@ import glob
 
 def usage ():
 	print ("Usage: python run.py arg0 arg1 arg2")
-	print ("arg0: operation type (-pre_selection, -selection, -prediction, -evaluation, -plot)")
-	print ("arg1: data_path")
-	print ("arg2: script name (optional), if it is not given, all scripts of this step will be executed")
-
+	print ("")
+	print ("	arg0: operation type (-pre_selection, -selection, -prediction, -evaluation")
+	print ("	arg1: data_path")
+	print ("	arg2: script name (optional), if it is not given, all scripts of this step will be executed")
+	print ("")
+	print ("And to plot the results use: python run.py -plot arg")
+	print ("	arg: is data path, for example data/us_diff.csv")
+	
 # Generic funtion to
 # Execute one script on a file or multiple files in data_path, 
 # and put results on output_directory

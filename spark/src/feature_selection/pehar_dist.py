@@ -51,8 +51,6 @@ def pehar_distributed (Mat, target, iters, error = 1.0e-3):
     df_target = df. where ((df. P1 != target) & (df.P2 == target)). select (["P1", "Caus"])
     
     causalities = df_predictors. join (df_target, on='P1'). rdd. map (lambda x: (x[0], x[1], float (x[2]) * float (x[3]))).toDF(["P1", "P2", "Caus"])
-    #causalities. show (13645)
-    #exit (1)
     colnames = df.select ("P1"). distinct ()#. sort ("id1") 
     n_nodes = colnames.count ()
 
@@ -79,31 +77,25 @@ def pehar_distributed (Mat, target, iters, error = 1.0e-3):
         auths = normalize_rdd (auths)
         iter += 1
         err = hubs. join (hlast). map (lambda x: (x[1][0] - x[1][1])). reduce (lambda x, y: absolute (x + y))
-        #hubs = hubs. repartition (10) 
     hubs = hubs. sortBy (lambda x: x[1], ascending= False)
-    #hubs = hubs. repartition (10)
     return (auths, hubs)
 
 def select_k_variables (Mat, target, iters, k, error = 1.0e-3):
     hubs = pehar_distributed (Mat, target, iters, error = 1.0e-3)[1].\
     map (lambda x: (target + "_" + str (k), x[0], x[1])).\
     toDF (["Target", "Hubs", "Scores"]). select(["Target", "Hubs"])
-    #hubs. show ()
     return hubs. limit (k). rdd. map (lambda x: x)
 
 def select_k (Mat, target, iters, k, error = 1.0e-3):
       hubs = pehar_distributed (Mat, target, iters, error = 1.0e-3)[1].\
       map (lambda x: (target + "_" + str (k), x[0], x[1])).\
       toDF (["Target", "Hubs", "Scores"]). select(["Target", "Hubs"])
-      #hubs. show ()
       return hubs. limit (k). rdd. map (lambda x: x). collect ()
  
 # Applying the pehar algorithm on all variables of a input dataset
 def exec_pehar (input_mat):
-    df = sqlcontext.read. parquet ('hdfs://master:9000/user/hduser/matrix_of_depend/' + input_mat)
+    df = sqlcontext.read. parquet ('matrix_of_depend/' + input_mat)
     targets = df. select (['P1']). distinct (). rdd. map (lambda x: (x, []))
-    #targets = sc.parallelize (df. columns). map (lambda x: (x, []))
-    print (targets. collect ())
     
 def list_to_str (x):
     res = ""
@@ -112,8 +104,8 @@ def list_to_str (x):
     return res 
 if __name__ == "__main__":
     
-    os.system ("hadoop fs -mkdir -p /user/hduser/features_selection")
-    os.system ("hadoop fs -mkdir -p /user/hduser/features_selection/input_mat")
+    os.system ("hadoop fs -mkdir -p features_selection")
+    os.system ("hadoop fs -mkdir -p features_selection/input_mat")
     
     iters = 30
     if (len (sys.argv[1].split ('/')) > 1):
@@ -122,35 +114,23 @@ if __name__ == "__main__":
         input_mat = sys.argv[1]. split ('.')[0]
  
     df = sqlcontext.read. parquet ('hdfs://master:9000/user/hduser/matrix_of_depend/' + input_mat)
-    #df. show ()
-    #exit (1) 
     targets = df. select ("P1"). distinct ().  rdd. map (lambda x: x[0]). collect ()
-    #df. repartition (10)
-    #print (targets)
-    #targets = [targets[0]]
-    #features = targets. map (lambda x: (x, select_k_variables (df, x, iters = iters, k=3). rdd. map (lambda x: x))
+    
     features = sc.emptyRDD () 
+    
     for target in targets:
         hubs = select_k_variables (df, target, iters = iters, k=3)
-        #print (hubs. collect ())
-        #row = sc. rdd (hubs)
         features = features.union (hubs. map (lambda x:(x[0], [x[1]])))
 
-    #features_ = sc. parallelize (targets). map (lambda x: select_k (df, x, iters = iters, k=3))     
     features = features. reduceByKey (lambda x,y: x + y ).\
     map (lambda x: (x[0].split ('_')[0], x[0].split ('_')[1], x[1])).\
     map (lambda x: (x[0], x[1], list_to_str (x[2]))).\
     toDF (["Col", "NbV", "Hubs"])
     
-    features. show ()
-    #print (features. rdd. collect ())
     features.write.format("com.databricks.spark.csv").\
     mode("overwrite").\
     option("header", "true").\
     save("/user/hduser/features_selection/" + input_mat) 
-    #features. rdd. saveAsTextFile ("/user/hduser/features_selection/" + input_mat + "/features.txt", mode='overwrite')
-    #print (auths. collect ())
-    #print (hubs. map (lambda x: x[1]). reduce (lambda x, y: x + y))
 
 
 

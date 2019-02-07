@@ -49,9 +49,9 @@ def reduce_methods_names (methods):
             reduced_cols.append ('GFSM-te')
         elif 'GFS_gr' in method:
             reduced_cols.append ('GFSM-gg')
-        elif 'Ridge1' in method and 'Ridge' not in reduced_cols:
+        elif 'Ridge' in method and 'Ridge' not in reduced_cols:
             reduced_cols.append ('Ridge')
-        elif 'Lasso1' in method and 'Lasso' not in reduced_cols:
+        elif 'Lasso' in method and 'Lasso' not in reduced_cols:
             reduced_cols.append ('Lasso')
         else:
             reduced_cols.append (method)
@@ -81,12 +81,26 @@ def main (xls, cols, target_names, reduced_cols, data_name):
         
         
         for target_name in target_names:
+            # number of under-scores + 1
+            number_of_parts =  len (target_name.split('_')) 
             df = pd.DataFrame ()
+
             for name in sheet_names:
-                t_name = name.split('_')[0]
-                if target_name != t_name:
+
+                if number_of_parts == 1:
+                    t_name = name.split('_')[0]
+                else:
+                    t_name = ""
+                    str = name.split('_')
+                    t_name = str[0]
+                    for j in range (1, number_of_parts):
+                        t_name = t_name + '_' + str[j]
+                    #print (t_name)
+                    #exit (1)
+
+                if target_name == t_name:   
+                    df = pd.concat ([df, pd.read_excel(xls, name)], axis = 0)
                     continue
-                df = pd.concat ([df, pd.read_excel(xls, name)], axis = 0)
          
             if df.empty == True:
                 continue
@@ -100,11 +114,13 @@ def main (xls, cols, target_names, reduced_cols, data_name):
                 matrix [INDEX[i]][i] = int (matrix [INDEX[i]][i]) + 1
 
 
+        #print (matrix)
         # Dict to DaraFrame
         for i in range (len (reduced_cols)):
             for j in range (len (reduced_cols)):
                 matrix_pf.iloc [i,j] = matrix [cols[i]][j]
 
+		
         matrix_pf.index = reduced_cols
         matrix_pf.to_csv ("plots/csv/" + file)
         #print (matrix_pf)
@@ -125,6 +141,7 @@ if __name__ == "__main__":
 
     #------ READ TARGET NAMES ---------#
     target_names = read_csv_and_metadata (file_name).meta_header['predict']
+    print (len (target_names))
 
     #------ READ SHEET NAMES ---------#
     if os.path.exists ("results/evaluation/" + data_name + "/" + data_name + ".xlsx"):
@@ -133,7 +150,19 @@ if __name__ == "__main__":
         xls = pd.ExcelFile("results/evaluation/" + data_name + "/" + data_name + ".xls")
     else:
     	print ("Error in reading the file: " + data_name)
-    sheet_names = xls.sheet_names
+    sheet_names = xls.sheet_names[:]
+    names = sheet_names[:]
+
+    '''for i in range (len (sheet_names)):
+        str = names[i]. split ('_')[0]
+
+        for j in range (len (str) - 1):
+            names[i] += str[j]'''
+
+
+    #print (len (np.unique (names)))
+    #print (names)
+    #exit (0)
     
     df = pd.read_excel(xls, sheet_names[0])
     cols, counts = np.unique(df['predict'], return_counts=True)
@@ -147,6 +176,7 @@ if __name__ == "__main__":
 
     #------ CONSTRUCT REDUCED NAMES ---------#
     reduced_cols = reduce_methods_names (cols)
+    print (reduced_cols)
     #print (reduced_cols)
 
     #------------- MAIN ---------------#

@@ -75,11 +75,20 @@ def main (xls, cols, target_names, reduced_cols, data_name):
         
         for target_name in target_names:
             df = pd.DataFrame ()
+            number_of_parts =  len (target_name.split('_')) 
             for name in sheet_names:
-                t_name = name.split('_')[0]
-                if target_name != t_name:
+                if number_of_parts == 1:
+                    t_name = name.split('_')[0]
+                else:
+                    t_name = ""
+                    _str = name.split('_')
+                    t_name = _str[0]
+                    for j in range (1, number_of_parts):
+                        t_name = t_name + '_' + _str[j]
+
+                if target_name == t_name:   
+                    df = pd.concat ([df, pd.read_excel(xls, name)], axis = 0)
                     continue
-                df = pd.concat ([df, pd.read_excel(xls, name)], axis = 0)
 
             if df.empty == True:
                 continue

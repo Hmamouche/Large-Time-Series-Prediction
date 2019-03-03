@@ -1,4 +1,4 @@
-# This a sample test of the process  on ebob-l.csv dataset.
+# This a sample test of the process  on australian macro-economic dataset.
 
 # Put data to hdfs
 sh jobs/local_to_distributed.sh data/ausmacro.csv

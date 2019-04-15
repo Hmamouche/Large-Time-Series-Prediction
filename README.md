@@ -48,7 +48,7 @@ This repository contains process for large time series prediction, and an experi
  
 # To reproduce the results
 
-## To execute the hole process for a given dataset "dataname"
+## Run all the process for a given dataset "dataname"
 ```bash
 	python run.py -pre_selection data/dataname
 	python run.py -selection data/dataname
@@ -57,7 +57,7 @@ This repository contains process for large time series prediction, and an experi
 	python run.py -evaluation data/dataname
 
 ```
-## To execute just some steps of the process
+## Run just some steps of the process
 ```bash
 python run.py -h 
 ```

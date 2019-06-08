@@ -2,10 +2,10 @@
 
 This repository contains process for large time series prediction, and an experiments analysis. It contains the used data, the models and methods implementations including the proposed algorithms,  and the obtained results. The results include the  graphs of dependencies between time series, the results of the feature selection, the predictions using different prediction models, and finally the prediction accuracy evaluations.
 
-# Structure:
+# Structure
 
-## data: 
-	* the used multivariate time series
+## datasets: 
+	* the used multivariate time series.
 
 ## src: methods and models implementations
 
@@ -46,7 +46,7 @@ This repository contains process for large time series prediction, and an experi
   	use the src/selection/fcbf.R script (for the FCBF method).
 
  
-# To reproduce the results
+# Reproducing the results
 
 ## Run all the process for a given dataset "dataname"
 ```bash
@@ -57,7 +57,7 @@ This repository contains process for large time series prediction, and an experi
 	python run.py -evaluation data/dataname
 
 ```
-## Run just some steps of the process
+## Running just some steps of the process
 ```bash
 python run.py -h 
 ```

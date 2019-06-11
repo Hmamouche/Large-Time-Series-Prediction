@@ -5,7 +5,7 @@ This repository contains process for large time series prediction, and an experi
 # Structure
 
 ## datasets: 
-	* the used multivariate time series.
+   * the used multivariate time series.
 
 ## src: methods and models implementations
 
@@ -24,11 +24,11 @@ This repository contains process for large time series prediction, and an experi
 		
 ## results
 
-	* pre_selection: causality matrix of each datasets
+   * pre_selection: causality matrix of each datasets
 
-	* selection: feature selection (with all methods) for each target variable of each datasets.
-
-	* prediction: the predictions associated to each file in results/selection/dataset/
+   * selection: feature selection (with all methods) for each target variable of each datasets.
+   
+   * prediction: the predictions associated to each file in results/selection/dataset/
 
       
 # Installation

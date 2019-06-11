@@ -9,17 +9,17 @@ This repository contains process for large time series prediction, and an experi
 
 ## src: methods and models implementations
 
-	* tools: some function for reading and writing files and metadata
+   * tools: some function for reading and writing files and metadata
 
-	* pre_selection: causality graphs computation with the granger causality and the transfert entropy
+   * pre_selection: causality graphs computation with the granger causality and the transfert entropy
 
-	* selection: feature selection methods
+   * selection: feature selection methods
 
-	* prediction: the implementations of the prediction models
+   * prediction: the implementations of the prediction models
 	
-	* pre_evaluation: scripts for gathering the prediction errors
+   * pre_evaluation: scripts for gathering the prediction errors
 	
-	* evaluation: compute the forecast accuracy using MASE and RMSE measures.
+   * evaluation: compute the forecast accuracy using MASE and RMSE measures.
 	
 		
 ## results

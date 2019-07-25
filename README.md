@@ -1,6 +1,6 @@
 # A Process for Large Time Series Prediction
 
-This repository contains process for large time series prediction, and an experiments analysis. It contains the used data, the models and methods implementations including the proposed algorithms,  and the obtained results. The results include the  graphs of dependencies between time series, the results of the feature selection, the predictions using different prediction models, and finally the prediction accuracy evaluations.
+This repository contains a process for large time series prediction, and an experiments analysis. It contains the used data, the models and methods implementations including the proposed algorithms,  and the obtained results. The results include the  graphs of dependencies between time series, the results of the feature selection, the predictions using different prediction models, and finally the prediction accuracy evaluations.
 
 # Structure
 

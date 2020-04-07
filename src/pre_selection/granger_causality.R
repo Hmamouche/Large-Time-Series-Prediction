@@ -2,6 +2,7 @@
 
 #library(lmtest)
 library(vars)
+library (NlinTS)
 
 source("src/tools/read_meta_data.R")
 
@@ -54,28 +55,27 @@ if(is_roling)
 
 #### calculate the matrix
 gMat = data.frame(nrow=ncol(data), ncol=ncol(data))
+if (meta_data$lag_p == 0)
+	meta_data$lag_p == 1
 for (i in 1:ncol(data))
 {
     for (j in 1:ncol(data))
     {
-        if (meta_data$lag_p == 0){
-            lagMax = as.integer ((nrow(data)  - 1)  / (2 * (ncol(data) + 1)))
-        }
-        else lagMax = meta_data$lag_p
-        var = VARselect(data.frame(data[,j], data [,i]),lag.max= lagMax)
-        lag = var$selection[1]
-
 
         if (j != i) {
             tryCatch(
                      {
-                         test =   try (grangertest (data[,j] ~ data [,i], order = lag))
-                         if(test[1] == "Error in vc[ovar, ovar] : indice hors limites\n")
-                         {
-                             gMat[i,j] = 0
-                         }
-                         else
-                             gMat[i,j] = 1 - test$`Pr(>F)`[2]
+
+			 test =   causality.test (data[,j], data [,i], meta_data$lag_p)
+			 gMat[i,j] = 1 - test$pvalue
+
+			#tryCatch ({
+			 #test =   causality.test (data[,j], data [,i], meta_data$lag_p)
+			 #gMat[i,j] = 1 - test$pvalue},
+   			 #finally = {
+                          #   gMat[i,j] = 0
+			  #})
+    		    
                      }, error=function(e){cat("ERROR :",conditionMessage(e), "\n")}
             )
             #gMat[i,j] = test$

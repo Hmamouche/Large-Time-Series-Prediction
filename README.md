@@ -1,54 +1,23 @@
-# A Process for Large Time Series Prediction
 
-This repository contains a process for large time series prediction, and an experiments analysis. It includes the used data, the models and methods implementations including the proposed algorithms,  and the obtained results. The results include the  graphs of dependencies between time series, the results of the feature selection, the predictions using different prediction models, and finally the prediction accuracy evaluations.
+This repository contain an implementation of a framework for large time series prediction. The approach includes computing the  graphs of dependencies between time series, feature selection, then prediction using different algorithms.
+Examples on real datasets are provided.
 
-# Structure
+# Requirements
 
-## datasets: 
-   * the used multivariate time series.
-
-## src: methods and models implementations
-
-   * tools: some function for reading and writing files and metadata
-
-   * pre_selection: causality graphs computation with the granger causality and the transfert entropy
-
-   * selection: feature selection methods
-
-   * prediction: the implementations of the prediction models
-	
-   * pre_evaluation: scripts for gathering the prediction errors
-	
-   * evaluation: compute the forecast accuracy using MASE and RMSE measures.
-	
-		
-## results
-
-   * pre_selection: causality matrix of each datasets
-
-   * selection: feature selection (with all methods) for each target variable of each datasets.
-   
-   * prediction: the predictions associated to each file in results/selection/dataset/
-
-      
-# Installation
-
-  * install dependencies for python
+  * R >= 3.6
+  * Python >= 3.6
+  * Installing dependencies
     ```bash
-    sudo pip install -r requirements.txt.
+      Rscript requirements.R
+      pip install -r requirements.txt
     ```
-   * install dependencies for R
-   ```bash
-    sudo Rscript requirements.R
-   ```
-  
-  * Remarque: there are some issues when installing rJava, and Biocomb package, try to install them manually, else, you don't have to 
+  * Remarque: there are some issues when installing rJava, and Biocomb package, try to install them manually, else, you don't have to
   	use the src/selection/fcbf.R script (for the FCBF method).
 
- 
-# Reproducing the results
 
-## Run all the process for a given dataset "dataname"
+# Execution
+
+## Run all the process on a given dataset "dataname"
 ```bash
 	python run.py -pre_selection data/dataname
 	python run.py -selection data/dataname
@@ -59,7 +28,5 @@ This repository contains a process for large time series prediction, and an expe
 ```
 ## Running just some steps of the process
 ```bash
-python run.py -h 
+  python run.py -h
 ```
-
-

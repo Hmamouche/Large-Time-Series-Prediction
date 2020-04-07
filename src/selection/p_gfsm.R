@@ -161,11 +161,11 @@ gfsm_selection <- function (args){
     if( substr(output_dir, nchar(output_dir),nchar(output_dir)) != '/')
         output_dir = paste0(output_dir,'/')
 
-    no_cores <- detectCores() - 1
+    no_cores <- detectCores () - 1
     no_cores <- 1
 
     ## read the dataset
-    data = read.csv(data_dir,check.names=FALSE, header = TRUE, dec = '.',sep=";", comment.char = "#")
+    data = read.csv (data_dir,check.names=FALSE, header = TRUE, dec = '.',sep=";", comment.char = "#")
     
     # read meta-data
     meta_data = read_meta_data(data_dir)
@@ -176,8 +176,8 @@ gfsm_selection <- function (args){
     colnames = colnames(data)
 
     # Graphs directory
-    graph_dir = paste0("results/pre_selection/",meta_data$data_name)
-    graphs = list.files(path = graph_dir, all.files = FALSE)
+    graph_dir = paste0  ("results/pre_selection/",meta_data$data_name)
+    graphs = list.files (path = graph_dir, all.files = FALSE)
     
     for (k in 1:length(graphs))
     {
@@ -199,12 +199,12 @@ gfsm_selection <- function (args){
                     break;
                 }
 
-            mclapply(1:max_features, function(i) try(gfsm_selection_inner(output_dir, target_name,meta_data$prediction_type, graph_name, i, data, matrix, target_index, threshold, data_dir)), mc.cores=no_cores, mc.preschedule = FALSE)
+            mclapply (1:max_features, function(i) try (gfsm_selection_inner (output_dir, target_name,meta_data$prediction_type, graph_name, i, data, matrix, target_index, threshold, data_dir)), mc.cores=no_cores, mc.preschedule = FALSE)
         }
     }
 }
 
-args = commandArgs(trailingOnly=TRUE)
+args = commandArgs (trailingOnly=TRUE)
 
 if (length(args) > 3){
     print ("Error: number of arguments incorrect.")

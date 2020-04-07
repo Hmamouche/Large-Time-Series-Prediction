@@ -1,8 +1,9 @@
 # Author: Youssef Hmamouche
 
-library (TransferEntropy)
+library (NlinTS)
 
 source("src/tools/read_meta_data.R")
+source("src/tools/selection_tools.R")
 
 ### arguments
 args = commandArgs(trailingOnly=TRUE)
@@ -26,13 +27,14 @@ if( substr(output_dir, nchar(output_dir),nchar(output_dir)) != '/')
 # read data
 data = read.csv(data_dir, header=TRUE,check.names=FALSE,dec='.',sep=";",comment.char = "#")
 data = data[colSums(!is.na(data)) > 0]
+data = normalize (data)
 
 # read  metadata
 command = paste0 ('awk /^#/ ',data_dir)
 meta_data = read_meta_data(data_dir)
 
 if(is.na(meta_data$lag_p))
-    meta_data$lag_p = 0
+    meta_data$lag_p = 1
 
 if(is.na(meta_data$horizon))
     meta_data$horizon = 1
@@ -55,7 +57,11 @@ for (i in 1:ncol(data))
     for (j in 1:ncol(data))
     {
         if (j != i) {
-            gMat[i,j] = abs (as.numeric (computeTE (data[,j], data [,i],3,1, "Correlation")))
+		te = te_cont(data[,j], data [,i], p = meta_data$lag_p, q = meta_data$lag_p, k = 3, normalize = TRUE)
+		if (te >= 0)
+			gMat[i,j] = te
+		else
+			gMat[i,j] = 0
         }
         else
             gMat[i,j] = 0

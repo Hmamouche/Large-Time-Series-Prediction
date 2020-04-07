@@ -14,7 +14,8 @@ packages = c ("kernlab",
               "tsDyn",
               "factoextra",
               "NbClust",
-              "psych")
+              "psych",
+	      "NlinTS")
 
 for (package in packages)
 {

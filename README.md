@@ -17,13 +17,13 @@ Examples on real datasets are provided.
 
 # Execution
 
-## Run all the process on a given dataset "dataname"
+## Run all the process on a given dataset:
 ```bash
-	python run.py -pre_selection data/dataname
-	python run.py -selection data/dataname
-	python run.py -prediction data/dataname
-	python run.py -pre_evaluation data/dataname
-	python run.py -evaluation data/dataname
+	python run.py -pre_selection data/us_diff.csv
+	python run.py -selection data/us_diff.csv
+	python run.py -prediction data/us_diff.csv
+	python run.py -pre_evaluation data/us_diff.csv
+	python run.py -evaluation data/us_diff.csv
 
 ```
 ## Running just some steps of the process

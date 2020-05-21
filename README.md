@@ -45,5 +45,20 @@ if you may want to make just one processing with a specific script, an example i
 The goal here is making future predictions based on results of the evaluation step. The results will be stored in the folder _Processed_. This folder will contain also the best predictors and reduction method of each target variable. Exampe:
 
 ```bash
-	python prediction.py  data/us_diff.csv -m eval
+	python prediction.py  -d data/us_diff.csv -m eval
+```
+Or if you want to make forecasts without evaluation results, i.e., with a given reduction method and prediction model, you have to use "direct" prediction mode:. For more detail, see the following arguments:
+```bash
+--data, -d  file of data to process
+--mode {eval,direct}, -m {eval,direct}
+                      prediction mode
+--pred_model {VECM,ARIMA}, -pr {VECM,ARIMA}
+                      prediction model
+--fs_method {PEHAR_te,PEHAR_gc}, -fsm {PEHAR_te,PEHAR_gc}
+                      feature selection method
+--nb_predictors NB_PREDICTORS, -nbp NB_PREDICTORS
+                      number of variables to select
+--graph_type {gc,te}, -g {gc,te}
+                      Causality graph to use, ganger causality (gc), or
+                      transfer entropy (te)
 ```

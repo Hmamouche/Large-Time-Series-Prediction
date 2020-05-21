@@ -14,3 +14,5 @@ joblib
 tqdm
 openpyxl
 argparse
+pmdarima
+xlrd

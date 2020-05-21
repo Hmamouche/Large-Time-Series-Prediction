@@ -1,5 +1,6 @@
 #!/usr/bin/python
 
+import os
 import sys
 import glob
 import re
@@ -32,14 +33,14 @@ def transform_into_output_tables(results_collection, methods_to_hotizon_dict):
 
                 # Add results multivariate prediction
                 new_row = [
-                    OrderedDict({'predict': predict_model, 'group': group, 'method': mtype}.items() + measures.items())
+                    OrderedDict({'predict': predict_model, 'group': group, 'method': mtype}.items() | measures.items())
                     for group in results_collection[predict_model][target][horizon]
                     for mtype, measures in results_collection[predict_model][target][horizon][group].items()
                 ]
                 for u_model in univariate_models:
                     try:
                         new_row.extend([
-                            OrderedDict({'predict': u_model, 'group': u_model, 'method': mtype}.items() + measures.items())
+                            OrderedDict({'predict': u_model, 'group': u_model, 'method': mtype}.items() | measures.items())
                             for group in results_collection[u_model][target][horizon]
                             for mtype, measures in results_collection[u_model][target][horizon][group].items()
                         ])
@@ -148,7 +149,7 @@ def read_and_evaluate_results():
         predict_model = predictions.meta_header['predict_model'][0]
         selection_method = predictions.meta_header['method'][0]
         target = predictions.meta_header['predict'][0]
-        if predictions.meta_header.has_key('experiment_type'):
+        if 'experiment_type' in predictions. meta_header. keys ():
             original_data = original_data.copy()
             original_data[:] = 0
         horizon = len(predictions.columns)
@@ -184,9 +185,10 @@ def read_and_evaluate_results():
             selection_method_group_name, id_name = \
                 predictions.meta_header['method'][0].split('(')[:2]
         except Exception as exception:
-            print("Error: could parse the selection method name,\
+            print("Error: couldn't parse the selection method name,\
                     please use 'method_group_name(other_params, n_components=k, other_params)'.\
                     If no n_components param is found group is treated as one element group.")
+            selection_method_group_name, id_name = "None", "None"
 
         r_match = n_components_match.search(id_name)
         m_id = hashlib.sha1(id_name.encode('UTF-8')).hexdigest()[:10]
@@ -204,7 +206,7 @@ def read_and_evaluate_results():
 
 def default_to_regular(d):
     if isinstance(d, defaultdict):
-        d = {k: default_to_regular(v) for k, v in d.iteritems()}
+        d = {k: default_to_regular(v) for k, v in d.items()}
     return d
 
 
@@ -212,13 +214,17 @@ def main():
     results_collection, prediction_method_horizon, error_list = read_and_evaluate_results()
     # This was already checked in read_and_evaluate_results
     out_dir = sys.argv[2]
+    # Set the output prefix
+    timeseries_prefix = sys.argv[1].split("/")[-1].split(".")[0]
+
+    if os.path.exists ("%s/%s.pickle"%(out_dir, timeseries_prefix)):
+        os.system ("rm %s/%s.pickle"%(out_dir, timeseries_prefix))
+
 
     # Get the output touple
     tables_real = transform_into_output_tables(
         results_collection, prediction_method_horizon)
 
-    # Set the output prefix
-    timeseries_prefix = sys.argv[1].split("/")[-1].split(".")[0]
     tables_real = default_to_regular(tables_real)
 
     with open("%s/%s.pickle"%(out_dir, timeseries_prefix),"wb") as out_file:

@@ -43,12 +43,12 @@ class bcolors:
 class toSuppervisedData:
     targets = np.empty([0,0],dtype=float)
     data = np.empty([0,0],dtype=float)
-    
+
     ## constructor
     def __init__(self, X, p):
         self.targets = self.targets_decomposition (X,p)
         self.data = self.matrix_decomposition (X,p)
-    
+
     ## p-decomposition of a vector
     def vector_decomposition (self,x,p):
         n = len(x)
@@ -77,7 +77,7 @@ class toSuppervisedData:
                 output = out
             else:
                 output = np.concatenate ((output,out),axis=1)
-        
+
         return output
 
     # extract all the targets decomposed
@@ -109,6 +109,38 @@ def normalize (M):
 
     return minMax
 
+#========================================================================
+class LSTM_MODEL:
+    def __init__(self, lag):
+        self. look_back = lag
+        self. model = None
+
+    def fit (self, X, Y, epochs = 30):
+        X = np.array (X)
+        new_shape = [X.shape[0], self.look_back, int (X.shape[1] / self.look_back)]
+        X_reshaped = X.reshape (new_shape)
+
+        self.model = Sequential()
+        #self. model. add (LSTM (X_reshaped. shape [2], input_shape=(self. look_back , X_reshaped. shape [2]), dropout_W = 0.2))
+        self. model. add (LSTM (units = X_reshaped. shape [2],  dropout = 0.2))
+        #self. model. add (Dense(1, activation='sigmoid'))
+        self.model.add(Dense(1, activation='relu'))
+        self.model.compile (loss = 'mean_squared_error', optimizer = 'adam', metrics = ['mae'])
+
+        self.model.fit (X_reshaped, Y,  epochs = epochs, batch_size = 1, verbose = 0, shuffle = False)
+
+    def predict (self, X):
+        X_reshaped = X.reshape(X.shape[0], self. look_back, int (X.shape[1] / self. look_back))
+        preds = self. model. predict (X_reshaped, batch_size = 1). flatten ()
+        return preds
+
+    def update (self, X, Y, epochs):
+        new_shape = [X.shape[0], self.look_back, int (X.shape[1] / self.look_back)]
+        X_reshaped = X.reshape (new_shape)
+        self.model.fit (X_reshaped, Y,  epochs = epochs, batch_size = 1, verbose = 0, shuffle = False)
+        self.model.reset_states()
+
+
 #--------------------------------------#
 #----+     DENORMALIZATION      +------#
 #--------------------------------------#
@@ -117,128 +149,92 @@ def inverse_normalize (M,minMax):
         M[i] = M[i] * (minMax[1] - minMax[0]) + minMax[0]
     return M
 
-#------------------------------------------#
-#----+     fit an LSTM network      +------#
-#------------------------------------------#
-def fit_lstm (train, look_back, batch_size, nb_epoch, neurons):
-    X, y = train[:, 1:train.shape[1]], train[:, 0]
-    X = X.reshape(X.shape[0], look_back, X.shape[1] / look_back)
-    
-    model = Sequential()
-    model.add (LSTM (neurons, batch_input_shape = (batch_size, X.shape[1], X.shape[2])))
-    model.add(Dense(1))
-    
-    model.compile(loss='mean_squared_error', optimizer='adam')
-    
-    for i in range(nb_epoch):
-        model.fit(X, y, epochs=1, batch_size=batch_size, verbose=1, shuffle=False)
-        model.reset_states()
-    return model
-
-#--------------------------------------------------------------#
-#------------+     Make a One-Step Forecast       +------------#
-#--------------------------------------------------------------#
-def forecast_lstm (model,look_back, batchSize, X):
-    X = X.reshape(X.shape[0], look_back, X.shape[1] / look_back)
-    yhat = model.predict (X,  batch_size = batchSize)
-    #print (yhat, yhat[-1,0])
-    return yhat[-1,0]
-
-#-----------------------------------------#
-#------------+     LSTM      +------------#
-#-----------------------------------------#
-def imp_LSTM (data, nbre_preds, p, nbre_iterations, neurons, batchSize = 1):
+#==========================================================================#
+def imp_LSTM (data, nbre_preds, p):
 
     # normalize the data
-    minMax = normalize(data)
+    #minMax = normalize(data)
 
     # transform the data to supervised learning
     model = toSuppervisedData(data,p)
     X = model.data
-    
-    # Extract target variables
-    targets = model.targets
+    y = model.targets[:,0:1]
+
     predictions = np.empty ([nbre_preds, 1])
-    reals = targets[targets.shape[0] - nbre_preds:targets.shape[0],:]
-    X = np.concatenate ((targets[:,0:1], X), axis = 1)
     limit = X.shape[0] - nbre_preds
-    
-    # If we want to use 2 mini-batchs
-    '''if (limit % 2 == 1):
-    	train, test = X[1:limit], X[limit:X.shape[0]]
-    	batchSize = (limit - 1) / 2
-    else:
-    	train, test = X[0:limit], X[limit:X.shape[0]]
-    	batchSize = limit / 2'''
-    batchSize = 1
-    
-    lstm_model =  fit_lstm(train, p, batchSize, nbre_iterations, neurons)
+
+    X_train, y_train = X[0:limit], y[0:limit]
+
+
+    lstm_model = LSTM_MODEL (p)
+    lstm_model. fit  (X_train, y_train)
+
     prediction = []
-    
+
     for j in range (0, nbre_preds):
         limit = X.shape[0] - nbre_preds + j
-        test = X [limit - batchSize + 1  :limit+1]
-        Xx, yy = test [:, 1:test.shape [1]], test[:, 0]
-        #print (Xx. shape)
-            
-        # prediction
-        yhat = forecast_lstm (lstm_model, p, batchSize, Xx)
-        prediction.append (yhat)
-    
+
+        Xx, yy = X [limit  :limit+1], y[limit  :limit+1]
+
+        # make  predictions
+        yhat = lstm_model.predict (Xx)
+        # take the last one corresponding to the futur prediction
+        prediction.append (yhat[-1])
+
         # update the model: online learning
-        X_update = X[limit - batchSize + 1:limit+1]
-        Xx, yy = X_update[:, 1:X.shape[1]], X_update[:, 0]
-        Xx = Xx.reshape(Xx.shape[0], p, Xx.shape[1] / p)
+        X_update, y_update = X[limit :limit+1], y[limit :limit+1]
+        lstm_model. update (X_update, y_update, epochs=1)
 
-        lstm_model.fit(Xx, yy, epochs=1, batch_size= batchSize, verbose = 0)    
-    
+
     predictions[:,0] = prediction
-    predictions = inverse_normalize (predictions,minMax[0,:])
-    reals = inverse_normalize (reals, minMax[0,:])
+    #predictions = inverse_normalize (predictions,minMax[0,:])
+    #reals = inverse_normalize (reals, minMax[0,:])
 
-    return np.array(predictions),reals
+    return np.array(predictions)
 
 #-------------------------------------------#
 #-------+      PREDICT A FILE      +--------#
 #-------------------------------------------#
 def predictbase (fname, output_directory, reset = 0):
-    
+
+    '''if "PEHAR" not in fname:
+        return'''
     fname_ = fname.split('/')[-1]
-    out_fname = output_directory + "/_lstm_" + fname_
-    
-    X_train = read_csv_and_metadata(fname)
-    meta_header = X_train.meta_header
+    out_fname = output_directory + "/LSTM_" + fname_
+
+    data = read_csv_and_metadata(fname)
+    meta_header = data.meta_header
     nbre_preds = int (meta_header['number_predictions'][0])
     p = int (meta_header['lag_parameter'][0])
     horizon = int (meta_header['horizon'][0])
-    target_names =  (meta_header['predict'])
-    #X_train = X_train.tail (X_train.shape[0] * 8 / 10)
-    batchSize = 1
-    nbre_iterations = 30 # it's the number of epochs in fact
-    
+    target_names =  meta_header['predict']
+
+    # Temporarly: to reduce the computation time
+    if data.shape[1] not in [4, 5, 6, 7]:
+        return
+
     if not os.path.exists(out_fname):
         n_predictions = 0
-    
+
     if os.path.exists(out_fname):
         predictions = read_csv_and_metadata(out_fname)
         n_predictions = predictions.shape [0]
-    
+
     if n_predictions < nbre_preds or reset == 1:
-        print ("Processing file %s" % out_fname)
-        neurones = int (X_train.values.shape[1] * p)
-        predictions, reals = imp_LSTM (X_train.values, nbre_preds, p, nbre_iterations, neurones, batchSize)
+        #print ("Processing file %s" % out_fname)
+        predictions = imp_LSTM (data.values, nbre_preds, p)
         predictions = pd.DataFrame (predictions[:,0])
-    
+
         # Put meta-data for the output file
-        predictions.meta_header = X_train.meta_header
+        predictions.meta_header = data.meta_header
         predictions.meta_header['predict_model'] = ["lstm"]
         predictions.meta_header['predict'] = [target_names[0],]
 
-    
+
         write_csv_with_metadata(predictions, out_fname)
-    else:
+    '''else:
         print ( bcolors.OKGREEN + "File %s already exist" % out_fname + bcolors.ENDC)
-    print ("Done...")
+    print ("Done...")'''
 
 
 #-----------------------------------------#
@@ -250,43 +246,9 @@ def main ():
     	fnames = [sys.argv[1]]
     else:
     	fnames = glob.glob (fnames_path+"*.csv")
-    	
-    Parallel(1)(delayed(predictbase)(fname, output_directory, reset = 0) for fname in fnames)
-                 
-                 
+
+    Parallel(5)(delayed(predictbase)(fname, output_directory, reset = 0) for fname in fnames)
+
+
 if __name__ == "__main__":
     main()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -25,7 +25,7 @@ def main():
             fname = re.sub("VECM(-|_)", "", fname)
             fname = re.sub("rolling(-|_)", "", fname)
             prefix = "/".join(m.group(1).split("/")[:-1])
-            print prefix.replace("prediction","selection") + "/" + fname
+            print (prefix.replace("prediction","selection") + "/" + fname)
 
         continue
         m = re.search("([^\s]*\.csv)", error)
@@ -38,7 +38,7 @@ def main():
                 symbol = re.sub(g,"",fname[-1])
                 symbol = re.sub("_%s.*"%(fname[-2]),"", symbol)
                 symbols[g].append(symbol)
-                print error
+                print (error)
     for g in symbols:
         print(g,symbols[g])
 

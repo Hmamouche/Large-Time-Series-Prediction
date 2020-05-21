@@ -82,23 +82,20 @@ class toSuppervisedData:
                 output = out
             else:
                 output = np.concatenate ((output,out),axis=1)
-        
+
         return output
 ######################################################
 def regularized_VAR (X, targets, nbre_preds, model_):
 
     targets = np.array (targets)
-    
+
     predictions = np.empty ([nbre_preds, 1])
-    #print (targets.shape[0])
-    #
-    #exit (1)
-   # reals = targets[targets.shape[0] - nbre_preds:targets.shape[0],:]
-    #exit (1)
+
+
     limit = X.shape[0] - nbre_preds
     X_train, test = X[0:limit], X[limit:X.shape[0]]
     Y_train = targets [0:limit]
-    
+
     model = model_.fit (X_train, Y_train)
 
     for j in range(0, nbre_preds):
@@ -109,10 +106,10 @@ def regularized_VAR (X, targets, nbre_preds, model_):
         # prediction
         yhat = model.predict (train)
         predictions [j] = yhat
-            
+
         # update the model: rolling window learning
         model = model.fit (X_test, Y_test)
-    
+
     return pd.DataFrame (predictions)
 
 #########################################################
@@ -127,23 +124,23 @@ def predictbase (fname, output_directory, reset = 0):
     meta_header = data.meta_header
     nbre_preds = int (meta_header['number_predictions'][0])
     targets = meta_header['predict']
-    
+
 
     p = int (meta_header['lag_parameter'][0])
     model = toSuppervisedData (data.values, p)
     X = model.data
     targets_ = model.targets
-    
+
     for model in sh_models:
         for target in targets:
             out_fname = output_directory + "/" + model + "_" + target + "_" + model + "_t_K=All.csv"
             print ("Processing the column: " + target)
             try:
-                predictions = regularized_VAR (X, data.ix[p:,target].values, nbre_preds, sh_models[model])
+                predictions = regularized_VAR (X, data[target].values[p:], nbre_preds, sh_models[model])
                 predictions.meta_header = data.meta_header
                 predictions.meta_header['predict_model'] = ["VAR"+ model]
                 predictions.meta_header['method'] = [model + "(n_components=all)"]
-                predictions.meta_header['predict'] = [target,]
+                predictions.meta_header['predict'] = [target]
                 write_csv_with_metadata(predictions, out_fname)
 
             except Exception as e:
@@ -158,8 +155,3 @@ def main ():
 
 if __name__ == "__main__":
     main()
-
-
-
-
-

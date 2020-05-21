@@ -23,19 +23,21 @@ def dimension_reduction(fname, column, f_max, output_directory):
     methods_manual = [
                       decomp.FactorAnalysis,
                       decomp.PCA,
-                      partial_with_pretty_method_name(decomp.KernelPCA, kernel="rbf", fit_inverse_transform=True)
+                      partial_with_pretty_method_name(decomp.KernelPCA, kernel="rbf")
                       ]
 
     methods = []
     #methods.extend([m() for m in methods_automatic])
     methods.extend([m(n_components=f_num) for m in methods_manual for f_num in range(1,f_max+1)])
-    #print (methods)
-    #exit ()
+
+    #methods.extend ([m(n_components=f_num) for m in methods_manual for f_num in [f_max+1]])
 
     for method in methods:
         # output for method name
         mname = "dm_" + pretty_print_method_name(method)
         out_fname = get_filename_from_method(fname, column, mname, prefix=output_directory)
+
+        #out_fname = output_directory + fname.split("/")[len(fname.split("/"))-1].split(".")[0] +  "_" + column + "_" + method + "_" + "k=" + str (output_dimension)+ ".csv"
 
         # TODO: only update the files ?
         # if file exists skip selection for this method
@@ -76,13 +78,12 @@ def main():
 
     df = read_csv_and_metadata(fname)
     f_max = min(min(df.shape), int (df.meta_header['max_attributes'][0]))
-    
+
     for column in df.meta_header['predict']:
     	dimension_reduction (fname, column, f_max, output_directory)
-    
+
     #Parallel(-1)(delayed(dimension_reduction)(fname, column, f_max, output_directory) for column in df.meta_header['predict'])
 
 
 if __name__ == "__main__":
     main()
-

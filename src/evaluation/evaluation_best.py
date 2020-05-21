@@ -33,7 +33,7 @@ class transform_into_best_excel(object):
             ret = {}
             for target_name in target_min[horizon]:
                 ret[target_name] = target_min[horizon][target_name].iloc[target_min[horizon][target_name]['rmse'].idxmin(axis=0)][['rmse', 'group', 'predict', 'method']]
-                if not target_avg.has_key(target_name):
+                if target_name not in target_avg.keys():
                     target_avg[target_name] = target_min[horizon][target_name]
                 else:
                     target_avg[target_name]['rmse'] += target_min[horizon][target_name]['rmse']

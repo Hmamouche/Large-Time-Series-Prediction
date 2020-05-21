@@ -82,6 +82,22 @@ def read_csv_and_metadata(filename, **kwargs):
     matrix.meta_header = read_metadata_from_csv_file(filename)
     return matrix
 
+def read_csv_and_metadata_2(filename, **kwargs):
+    #pd.DataFrame._metadata = ["meta_header"]
+
+    # if not set in kwargs, use defaults for this project
+    if 'comment' not in kwargs:
+        kwargs['comment'] = '#'
+    if 'delimiter' not in kwargs or 'sep' not in kwargs:
+        kwargs['delimiter'] = ';'
+    if 'engine' not in kwargs:
+        kwargs['engine'] = 'c'
+
+    matrix = pd.read_csv(filename, **kwargs)
+    matrix = matrix. dropna (axis=1, how='all')
+    matrix._metadata = read_metadata_from_csv_file(filename)
+    return matrix
+
 def exclude_column_generator(df):
     for c in df.meta_header['predict']:
         yield c, df[df.columns.difference([c,])]
@@ -95,6 +111,17 @@ def write_csv_with_metadata(df, filename, **kwargs):
     with open(filename, "w") as file_in:
         for k in df.meta_header:
             file_in.write("# %s; " % (k,) + ';'.join(df.meta_header[k])+"\n")
+        df.to_csv(file_in, **kwargs)
+
+def write_csv_with_metadata_2(df, filename, **kwargs):
+
+    # if not set in kwargs, use defaults for this project
+    if 'index' not in kwargs: kwargs['index'] = False
+    if 'delimiter' not in kwargs or 'sep' not in kwargs: kwargs['sep'] = ';'
+
+    with open(filename, "w") as file_in:
+        for k in df._metadata:
+            file_in.write("# %s; " % (k,) + ';'.join(df._metadata[k])+"\n")
         df.to_csv(file_in, **kwargs)
 
 def test():

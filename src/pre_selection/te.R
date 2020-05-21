@@ -33,6 +33,8 @@ data = normalize (data)
 command = paste0 ('awk /^#/ ',data_dir)
 meta_data = read_meta_data(data_dir)
 
+
+
 if(is.na(meta_data$lag_p))
     meta_data$lag_p = 1
 
@@ -57,7 +59,13 @@ for (i in 1:ncol(data))
     for (j in 1:ncol(data))
     {
         if (j != i) {
-		te = te_cont(data[,j], data [,i], p = meta_data$lag_p, q = meta_data$lag_p, k = 3, normalize = TRUE)
+
+    # Continuous transfer entropy estimate
+	te = te_cont(data[,j], data [,i], p = meta_data$lag_p, q = meta_data$lag_p, k = 3, normalize = TRUE)
+
+    # Shanon transfer entropy
+    #te = te_disc(data[,j], data [,i], p = meta_data$lag_p, q = meta_data$lag_p, normalize = TRUE)
+
 		if (te >= 0)
 			gMat[i,j] = te
 		else

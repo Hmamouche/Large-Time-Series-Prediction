@@ -10,7 +10,7 @@ from sklearn.exceptions import ConvergenceWarning
 
 sys.path.append ("src")
 from tools.csv_helper import *
-from selection.gfsm_fselection import gfsm_feature_selection
+#from selection.gfsm_fselection import gfsm_feature_selection
 from selection.pehar_fselection import pehar_feature_selection
 from pre_selection.granger_causality import causality_matrix
 

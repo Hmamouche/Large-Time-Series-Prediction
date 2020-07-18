@@ -30,15 +30,15 @@ The data must be a multivariate time series stored as a csv file with semi-colon
 ### Evaluation mode:
 The aim of these steps is to make evaluations on a train-test split of the data of type cross validation or rolling window (specified in meta-data of the input data). It consists first in computing causality graphs, applying reduction methods, then applying prediction models, and finally  finding the best feature selection method and prediction model for each target variable. The results of these steps will be stored in the folder _results_. Example:
 ```bash
-	python process.py -pre_selection data/us_diff.csv
-	python process.py -selection data/us_diff.csv
-	python process.py -prediction data/us_diff.csv
-	python process.py -pre_evaluation data/us_diff.csv
-	python process.py -evaluation data/us_diff.csv
+	python process.py  data/us_diff.csv -t pre_selection
+	python process.py  data/us_diff.csv -t selection
+	python process.py  data/us_diff.csv -t prediction
+	python process.py  data/us_diff.csv -t pre_evaluation
+	python process.py  data/us_diff.csv -t evaluation
 ```
 if you may want to make just one processing with a specific script, an example is as follows:
 ```bash
-	python process.py -selection data/us_diff.csv -s src/slection/pehar_fselection.py
+	python process.py  data/us_diff.csv -t selection -s src/slection/pehar_fselection.py
 ```
 
 ### Forecasting mode:

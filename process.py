@@ -150,7 +150,7 @@ if __name__ == '__main__':
 
 	parser = argparse. ArgumentParser ()
 	parser. add_argument ("data", help = "data path")
-	parser. add_argument ("type", help = "task to perform", choices = ["pre_selection", "ps", "selection", "s", "prediction", "p", "pre_evaluation", "pe", "evaluation", "e"])
+	parser. add_argument ("--type", '-t', help = "task to perform", choices = ["pre_selection", "ps", "selection", "s", "prediction", "p", "pre_evaluation", "pe", "evaluation", "e"])
 	parser. add_argument ("--script", "-s", help = "script path", default = "")
 	args = parser.parse_args()
 

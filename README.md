@@ -62,3 +62,19 @@ Or if you want to make forecasts without evaluation results, i.e., with a given 
                       Causality graph to use, ganger causality (gc), or
                       transfer entropy (te)
 ```
+
+
+## Citation
+```bibtex
+@article{hmamouche2021scalable,
+  title={A scalable framework for large time series prediction},
+  author={Hmamouche, Youssef and Lakhal, Lotfi and Casali, Alain},
+  journal={Knowledge and Information Systems},
+  volume={63},
+  pages={1093--1116},
+  year={2021},
+  publisher={Springer}
+}
+```
+
+
